@@ -1,14 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProtonX Power LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProtonX Power LLC — Powering Tomorrow's Tactical Missions</title>
+  <meta name="description" content="ProtonX Power LLC delivers ultra-high-density, rapid-deployment fuel cell systems engineered for rugged off-grid and defense environments." />
+  <meta name="theme-color" content="#0f172a" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            charcoal: "#0f172a",
+            slateDeep: "#0b1120",
+            electric: "#38bdf8",
+          },
+          fontFamily: {
+            sans: ['ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    ::selection { background: #38bdf8; color: #0f172a; }
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(56,189,248,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+  </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #0f172a; color: white;">
-    <h1>ProtonX Power LLC</h1>
-    <p style="font-size: 1.2rem; color: #94a3b8;">Powering Tomorrow’s Tactical Missions</p>
-    <p>Ultra-High-Density Power Systems for Defense & Off-Grid Energy</p>
-    <a href="mailto:contact@pxp-usa.com" style="color: #38bdf8;">Contact Us</a>
+<body class="bg-charcoal text-slate-200 font-sans antialiased">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b border-white/5 bg-charcoal/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="flex h-8 w-8 items-center justify-center rounded-md bg-electric/10 ring-1 ring-electric/40">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </span>
+        <span class="text-lg font-semibold tracking-tight text-white">ProtonX<span class="text-electric"> Power</span></span>
+      </a>
+      <div class="hidden items-center gap-8 md:flex">
+        <a href="#about" class="text-sm font-medium text-slate-300 transition hover:text-electric">About</a>
+        <a href="#technology" class="text-sm font-medium text-slate-300 transition hover:text-electric">Technology</a>
+        <a href="#applications" class="text-sm font-medium text-slate-300 transition hover:text-electric">Applications</a>
+        <a href="mailto:contact@pxp-usa.com" class="rounded-md bg-electric px-4 py-2 text-sm font-semibold text-charcoal transition hover:bg-sky-300">Contact</a>
+      </div>
+      <a href="mailto:contact@pxp-usa.com" class="rounded-md bg-electric px-4 py-2 text-sm font-semibold text-charcoal md:hidden">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="relative overflow-hidden border-b border-white/5">
+      <div class="grid-overlay absolute inset-0"></div>
+      <div class="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-electric/20 blur-[120px]"></div>
+      <div class="relative mx-auto max-w-7xl px-6 py-28 md:py-40">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-2 rounded-full border border-electric/30 bg-electric/5 px-3 py-1 text-xs font-medium uppercase tracking-widest text-electric">
+            <span class="h-1.5 w-1.5 rounded-full bg-electric"></span>
+            US-Based Deep-Tech Energy &amp; Defense
+          </span>
+          <h1 class="mt-6 text-balance text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+            Powering Tomorrow's Tactical Missions
+          </h1>
+          <p class="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-slate-300 md:text-xl">
+            Ultra-high-density, rapid-deployment fuel cell systems engineered for rugged off-grid and defense environments.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="mailto:contact@pxp-usa.com" class="rounded-md bg-electric px-6 py-3 text-sm font-semibold text-charcoal shadow-lg shadow-electric/20 transition hover:bg-sky-300">
+              Contact Sales / Tech Briefing
+            </a>
+            <a href="#technology" class="rounded-md border border-white/15 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-electric/50 hover:text-electric">
+              Explore the Technology
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-b border-white/5">
+      <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div class="grid gap-12 md:grid-cols-3">
+          <div class="md:col-span-1">
+            <h2 class="text-sm font-semibold uppercase tracking-widest text-electric">About ProtonX</h2>
+          </div>
+          <div class="md:col-span-2">
+            <p class="text-balance text-2xl font-medium leading-relaxed text-white md:text-3xl">
+              We build mission-grade power. ProtonX Power engineers advanced fuel cell systems that outperform legacy batteries where reliability, weight, and safety are non-negotiable.
+            </p>
+            <p class="mt-6 text-lg leading-relaxed text-slate-400">
+              From dismounted soldier power to austere expeditionary operations, our proprietary electrochemical architecture delivers dense, on-demand energy that deploys in seconds and stores for years.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology -->
+    <section id="technology" class="border-b border-white/5">
+      <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div class="max-w-2xl">
+          <h2 class="text-sm font-semibold uppercase tracking-widest text-electric">Technology &amp; Core Capabilities</h2>
+          <p class="mt-4 text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Engineered from the electrochemistry up.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 sm:grid-cols-2">
+          <!-- Card 1 -->
+          <article class="group rounded-xl border border-white/10 bg-slateDeep/60 p-8 transition hover:border-electric/40 hover:bg-slateDeep">
+            <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-electric/10 ring-1 ring-electric/30">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-white">Ultra-High Energy Density</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Dramatic weight reduction compared to legacy battery systems — more mission endurance for every kilogram carried.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="group rounded-xl border border-white/10 bg-slateDeep/60 p-8 transition hover:border-electric/40 hover:bg-slateDeep">
+            <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-electric/10 ring-1 ring-electric/30">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M19 14a7 7 0 1 1-14 0c0-3.5 3-6 5-11 2 5 5 7.5 5 11z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-white">On-Demand Liquid Activation</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Zero self-discharge during storage with one-touch instant field operation — ready when the mission calls.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="group rounded-xl border border-white/10 bg-slateDeep/60 p-8 transition hover:border-electric/40 hover:bg-slateDeep">
+            <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-electric/10 ring-1 ring-electric/30">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="mt-5 text-lg font-semibold text-white">Rugged &amp; Safe Energy Storage</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Non-gaseous, solid/liquid chemical architecture delivering maximum safety in harsh conditions.</p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="group rounded-xl border border-white/10 bg-slateDeep/60 p-8 transition hover:border-electric/40 hover:bg-slateDeep">
+            <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-electric/10 ring-1 ring-electric/30">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M12 2v4M12 18v4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M2 12h4M18 12h4M4.9 19.1l2.9-2.9M16.2 7.8l2.9-2.9"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3 class="mt-5 flex items-center gap-2 text-lg font-semibold text-white">
+              Proprietary High-Efficiency Architecture
+              <span class="rounded border border-electric/30 bg-electric/5 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-electric">Patent-Pending</span>
+            </h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Advanced crossover-suppressed electrochemical stack design for peak efficiency and longevity.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section id="applications" class="border-b border-white/5">
+      <div class="mx-auto max-w-7xl px-6 py-20 md:py-28">
+        <div class="max-w-2xl">
+          <h2 class="text-sm font-semibold uppercase tracking-widest text-electric">Target Applications</h2>
+          <p class="mt-4 text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">
+            Built for the field, the frontier, and the failsafe.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="relative overflow-hidden rounded-xl border border-white/10 bg-slateDeep/60 p-8">
+            <span class="text-xs font-semibold uppercase tracking-widest text-electric/70">01</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">Defense &amp; Tactical Power</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">UAVs, UGVs, field comms, and dismounted soldier power.</p>
+          </article>
+          <article class="relative overflow-hidden rounded-xl border border-white/10 bg-slateDeep/60 p-8">
+            <span class="text-xs font-semibold uppercase tracking-widest text-electric/70">02</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">Expeditionary &amp; Off-Grid Energy</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Remote research, disaster response, and austere operations.</p>
+          </article>
+          <article class="relative overflow-hidden rounded-xl border border-white/10 bg-slateDeep/60 p-8">
+            <span class="text-xs font-semibold uppercase tracking-widest text-electric/70">03</span>
+            <h3 class="mt-4 text-xl font-semibold text-white">Mission-Critical Backup</h3>
+            <p class="mt-3 leading-relaxed text-slate-400">Ultra-reliable power for emergency infrastructure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border-b border-white/5">
+      <div class="mx-auto max-w-7xl px-6 py-20 md:py-24">
+        <div class="relative overflow-hidden rounded-2xl border border-electric/20 bg-slateDeep p-10 md:p-16">
+          <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-electric/15 blur-[100px]"></div>
+          <div class="relative max-w-2xl">
+            <h2 class="text-balance text-3xl font-bold tracking-tight text-white md:text-4xl">Request a technical briefing.</h2>
+            <p class="mt-4 text-lg leading-relaxed text-slate-300">Talk with our engineering team about deploying ProtonX power systems in your operations.</p>
+            <a href="mailto:contact@pxp-usa.com" class="mt-8 inline-flex rounded-md bg-electric px-6 py-3 text-sm font-semibold text-charcoal shadow-lg shadow-electric/20 transition hover:bg-sky-300">
+              Contact Sales / Tech Briefing
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-charcoal">
+    <div class="mx-auto max-w-7xl px-6 py-14">
+      <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div>
+          <div class="flex items-center gap-2.5">
+            <span class="flex h-8 w-8 items-center justify-center rounded-md bg-electric/10 ring-1 ring-electric/40">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+            <span class="text-lg font-semibold tracking-tight text-white">ProtonX Power LLC</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-400">Illinois, USA</p>
+        </div>
+        <div class="text-sm text-slate-400">
+          <a href="mailto:contact@pxp-usa.com" class="font-medium text-electric transition hover:text-sky-300">contact@pxp-usa.com</a>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-white/5 pt-6">
+        <p class="text-sm text-slate-500">Copyright &copy; 2026 ProtonX Power LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
