@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProtonX Power LLC | High-Density Fuel Cell Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0D10;
+    --panel:#14171C;
+    --panel-2:#191D23;
+    --line:#272C33;
+    --text:#E8EAED;
+    --muted:#9BA4AF;
+    --accent:#E4A63A;
+    --accent-dim:rgba(228,166,58,0.14);
+    --blue:#5C86A3;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;} }
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    color:#F5F6F7;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{max-width:100%; display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 32px;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,13,16,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; max-width:1160px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-logo{
+    height:30px; width:auto; display:block;
+    background:#F6F7F8; padding:6px 12px; border-radius:3px;
+  }
+  .nav-links{display:flex; gap:34px; font-size:0.92rem; color:var(--muted);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{
+    border:1px solid var(--accent); color:var(--accent);
+    padding:9px 18px; font-size:0.88rem; transition:all .2s ease;
+  }
+  .nav-cta:hover{background:var(--accent); color:#12130f;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    padding:96px 32px 88px;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    background-position:center top;
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    max-width:1160px; margin:0 auto;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .hero-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--accent);
+    border:1px solid var(--line); padding:6px 12px; margin-bottom:26px;
+  }
+  .hero-tag::before{content:''; width:6px; height:6px; background:var(--accent); border-radius:50%;}
+  .hero h1{font-size:clamp(2.1rem, 4vw, 3.1rem); line-height:1.15; margin-bottom:22px;}
+  .hero p.lede{font-size:1.05rem; color:var(--muted); max-width:46ch; margin-bottom:34px;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--accent); color:#14130E; padding:14px 26px;
+    font-size:0.92rem; font-weight:500; transition:background .2s ease;
+  }
+  .btn-primary:hover{background:#F0B454;}
+  .btn-secondary{
+    border:1px solid var(--line); color:var(--text); padding:14px 26px;
+    font-size:0.92rem; transition:border-color .2s ease;
+  }
+  .btn-secondary:hover{border-color:var(--muted);}
+
+  /* Hero schematic */
+  .schematic{
+    background:var(--panel); border:1px solid var(--line); padding:28px;
+    position:relative;
+  }
+  .schematic-label{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--muted);
+    display:flex; justify-content:space-between; margin-bottom:16px;
+  }
+  .schematic svg{width:100%; height:auto;}
+  .hero-photo{
+    width:100%; height:340px; object-fit:cover; object-position:center 30%;
+    border:1px solid var(--line); filter:saturate(0.95) contrast(1.05);
+  }
+
+  /* Section shell */
+  section{padding:92px 0;}
+  .eyebrow-line{
+    display:flex; align-items:center; gap:14px; margin-bottom:18px;
+  }
+  .eyebrow-line .idx{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--accent);}
+  .eyebrow-line .rule{flex:1; height:1px; background:var(--line);}
+  .section-head{
+    display:grid; grid-template-columns:1fr 1.3fr; gap:48px;
+    margin-bottom:52px; align-items:start;
+  }
+  .section-head h2{font-size:clamp(1.7rem,2.8vw,2.2rem);}
+  .section-head p{color:var(--muted); font-size:1rem; max-width:52ch;}
+
+  /* Capabilities */
+  .capabilities{background:var(--panel-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .cap-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line);}
+  .cap-card{background:var(--panel-2); padding:36px; display:flex; flex-direction:column; gap:14px;}
+  .cap-code{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--accent);}
+  .cap-card h3{font-size:1.2rem; color:#F5F6F7;}
+  .cap-card p{color:var(--muted); font-size:0.96rem;}
+
+  /* Applications */
+  .app-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .app-card{
+    border:1px solid var(--line); padding:30px; background:var(--panel);
+    display:flex; flex-direction:column; gap:16px; min-height:220px;
+  }
+  .app-icon{width:34px; height:34px; color:var(--accent);}
+  .app-card h3{font-size:1.1rem;}
+  .app-card p{color:var(--muted); font-size:0.94rem; flex:1;}
+  .app-tag{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--blue); border-top:1px solid var(--line); padding-top:14px;}
+
+  /* About */
+  .about{border-bottom:1px solid var(--line);}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
+  .about-text p{color:var(--muted); margin-bottom:18px; font-size:1rem;}
+  .about-facts{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--line);}
+  .fact-row{display:grid; grid-template-columns:1fr 1.6fr; gap:20px; padding:22px 0; border-bottom:1px solid var(--line);}
+  .fact-row .k{font-family:'IBM Plex Mono',monospace; font-size:0.8rem; color:var(--muted);}
+  .fact-row .v{color:var(--text); font-size:0.98rem;}
+
+  /* Contact */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:64px;}
+  .contact-info h2{font-size:clamp(1.7rem,2.8vw,2.2rem); margin-bottom:18px;}
+  .contact-info p{color:var(--muted); margin-bottom:28px; max-width:42ch;}
+  .contact-detail{margin-bottom:16px;}
+  .contact-detail span{display:block; font-size:0.8rem; color:var(--muted); font-family:'IBM Plex Mono',monospace;}
+  .contact-detail strong{font-size:1.02rem; color:var(--text); font-weight:500;}
+
+  form{display:flex; flex-direction:column; gap:20px;}
+  .field{display:flex; flex-direction:column; gap:6px;}
+  .field label{font-size:0.85rem; color:var(--muted);}
+  .field input, .field textarea{
+    border:none; border-bottom:1px solid var(--line);
+    background:transparent; padding:10px 2px; font-size:1rem;
+    font-family:'IBM Plex Sans', sans-serif; color:var(--text);
+  }
+  .field input:focus, .field textarea:focus{border-bottom-color:var(--accent);}
+  .field textarea{resize:vertical; min-height:90px;}
+  .submit-btn{
+    align-self:flex-start; background:var(--accent); color:#14130E;
+    padding:14px 30px; border:none; font-size:0.92rem; font-weight:500;
+    cursor:pointer; margin-top:6px; transition:background .2s ease;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+  .submit-btn:hover{background:#F0B454;}
+  .form-success{display:none; color:var(--accent); font-size:0.92rem; margin-top:8px;}
+
+  footer{
+    padding:40px 0; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    color:var(--muted); font-size:0.85rem;
+  }
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr;}
+    .section-head{grid-template-columns:1fr;}
+    .cap-grid{grid-template-columns:1fr;}
+    .app-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/pxp-logo.png" alt="ProtonX Power LLC" class="brand-logo">
+    </a>
+    <div class="nav-links">
+      <a href="#technology">Technology</a>
+      <a href="#applications">Applications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Request Tech Briefing</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">DBFC POWER SYSTEMS</div>
+        <h1>Powering Tomorrow's Tactical Missions</h1>
+        <p class="lede">ProtonX Power LLC delivers ultra-high-density Direct Borohydride Fuel Cell (DBFC) solutions engineered for mission-critical and rugged environments.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn-primary">Contact Us</a>
+          <a href="#contact" class="btn-secondary">Request Tech Briefing</a>
+        </div>
+      </div>
+      <div class="schematic">
+        <div class="schematic-label">
+          <span>FIG. 01 — FIELD-CARRIED CARTRIDGE</span>
+          <span>DBFC-STACK-04</span>
+        </div>
+        <img src="assets/hero-fig01.png" alt="ProtonX Power DBFC cartridge carried in tactical gear" class="hero-photo">
+      </div>
+    </div>
+  </section>
+
+  <section class="capabilities" id="technology">
+    <div class="wrap">
+      <div class="eyebrow-line"><span class="idx mono">SEC / 01</span><span class="rule"></span></div>
+      <div class="section-head">
+        <h2>Technology &amp; Core Capabilities</h2>
+        <p>Four engineering principles define every ProtonX Power system, from cartridge chemistry to stack architecture.</p>
+      </div>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <span class="cap-code mono">CAP-01</span>
+        <h3>Ultra-High Energy Density</h3>
+        <p>A dramatically better weight-to-power ratio than lithium-ion, cutting the load and bulk carried by tactical personnel and unmanned platforms alike.</p>
+      </div>
+      <div class="cap-card">
+        <span class="cap-code mono">CAP-02</span>
+        <h3>Instant On-Demand Activation</h3>
+        <p>Zero self-discharge across long-term storage. Full power output is available in the field with a single activation step, whenever it's needed.</p>
+      </div>
+      <div class="cap-card">
+        <span class="cap-code mono">CAP-03</span>
+        <h3>Rugged &amp; Safe Solid-Chemical Energy</h3>
+        <p>Built on stable aqueous and solid-chemical storage rather than high-pressure hydrogen gas, eliminating explosion and fire risk while holding up in harsh conditions.</p>
+      </div>
+      <div class="cap-card">
+        <span class="cap-code mono">CAP-04</span>
+        <h3>Proprietary High-Efficiency Architecture</h3>
+        <p>A patent-pending cell and stack design minimizes fuel loss and drives energy conversion efficiency well beyond conventional fuel cell layouts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="applications">
+    <div class="wrap">
+      <div class="eyebrow-line"><span class="idx mono">SEC / 02</span><span class="rule"></span></div>
+      <div class="section-head">
+        <h2>Target Applications</h2>
+        <p>ProtonX Power systems are built to specification for three categories of mission-critical energy demand.</p>
+      </div>
+      <div class="app-grid">
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 24 24" fill="none"><path d="M12 2L20 6V12C20 17 16.5 20.5 12 22C7.5 20.5 4 17 4 12V6L12 2Z" stroke="currentColor" stroke-width="1.5"/></svg>
+          <h3>Defense &amp; Tactical Power</h3>
+          <p>Portable power for UAVs, unmanned ground robots (UGVs), field communications equipment, and dismounted soldier systems.</p>
+          <div class="app-tag mono">UAV · UGV · COMMS · SOLDIER-WORN</div>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M3 12H21M12 3C14.5 6 14.5 18 12 21C9.5 18 9.5 6 12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+          <h3>Off-Grid &amp; Expeditionary Energy</h3>
+          <p>Reliable power for disaster relief operations, remote research stations, and mobile equipment operating in extreme environments.</p>
+          <div class="app-tag mono">RELIEF · REMOTE OPS · EXTREME CLIMATE</div>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14H11L9 22L20 8H13L13 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <h3>Emergency Backup Systems</h3>
+          <p>High-reliability backup power for facilities and systems where mission continuity cannot depend on the grid.</p>
+          <div class="app-tag mono">HIGH RELIABILITY · MISSION CONTINUITY</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="eyebrow-line"><span class="idx mono">SEC / 03</span><span class="rule"></span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>About ProtonX Power</h2>
+          <p>ProtonX Power exists to push past the limits of conventional energy storage. Our work is grounded in deep-tech electrochemistry — not incremental improvements to existing battery formats, but a different chemical approach built for the environments where failure isn't an option.</p>
+          <p>Our team develops and holds proprietary, patent-pending technology out of our own U.S.-based research and development program, engineered from the ground up for defense, off-grid, and mission-critical applications.</p>
+        </div>
+        <div class="about-facts">
+          <div class="fact-row">
+            <div class="k">FOCUS</div>
+            <div class="v">Deep-tech electrochemistry &amp; energy storage</div>
+          </div>
+          <div class="fact-row">
+            <div class="k">R&amp;D</div>
+            <div class="v">U.S.-based research and development, proprietary technology</div>
+          </div>
+          <div class="fact-row">
+            <div class="k">IP</div>
+            <div class="v">Patent-pending cell &amp; stack architecture</div>
+          </div>
+          <div class="fact-row">
+            <div class="k">LOCATION</div>
+            <div class="v">Illinois, USA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="eyebrow-line"><span class="idx mono">SEC / 04</span><span class="rule"></span></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Contact &amp; Inquiries</h2>
+          <p>Reach out to discuss a technical briefing, a program requirement, or a potential partnership.</p>
+          <div class="contact-detail">
+            <span>EMAIL</span>
+            <strong>contact@pxp-usa.com</strong>
+          </div>
+          <div class="contact-detail">
+            <span>LOCATION</span>
+            <strong>Illinois, USA</strong>
+          </div>
+        </div>
+        <form id="contactForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="field">
+            <label for="org">Organization (Company / Agency)</label>
+            <input type="text" id="org">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+          <div class="form-success" id="formSuccess">Your message has been received. We'll be in touch.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:16px;">
+    <span>© 2026 ProtonX Power LLC. All rights reserved.</span>
+    <span class="mono">DBFC-SYS / ILLINOIS, USA</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
