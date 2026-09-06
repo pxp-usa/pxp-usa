@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProtonX Power LLC — Advanced Solid-Liquid Fuel Cell Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111207;
+    --bg-alt:#181A0F;
+    --surface:#1D1F14;
+    --line: rgba(237,234,224,0.14);
+    --line-strong: rgba(237,234,224,0.28);
+    --ink:#EDEAE0;
+    --ink-muted:#A5A28C;
+    --ink-dim:#716F5D;
+    --olive:#3C4029;
+    --brass:#C4903F;
+    --brass-bright:#E3AE63;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(17,18,7,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wordmark{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Oswald', sans-serif; font-size:19px; font-weight:600;
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .wordmark .cell-mark{
+    width:20px;height:26px;
+    border:1.6px solid var(--brass);
+    position:relative;
+    flex-shrink:0;
+  }
+  .wordmark .cell-mark::after{
+    content:"";
+    position:absolute; left:2px; right:2px; bottom:3px; height:8px;
+    background:var(--brass);
+  }
+  .wordmark span.power{color:var(--ink-muted); font-weight:400;}
+  nav.links{display:flex; gap:34px; align-items:center;}
+  nav.links a{
+    font-size:14.5px; color:var(--ink-muted); text-decoration:none;
+    transition:color .15s ease;
+  }
+  nav.links a:hover, nav.links a:focus-visible{color:var(--ink);}
+  .btn{
+    display:inline-block;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14.5px; font-weight:500;
+    padding:11px 22px;
+    border:1px solid var(--brass);
+    color:var(--ink);
+    text-decoration:none;
+    background:transparent;
+    cursor:pointer;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .btn:hover, .btn:focus-visible{background:var(--brass); color:#161707;}
+  .btn.primary{background:var(--brass); color:#161707;}
+  .btn.primary:hover, .btn.primary:focus-visible{background:var(--brass-bright); border-color:var(--brass-bright);}
+  .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--brass-bright); outline-offset:2px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end;
+    background:#000;
+  }
+  .hero-media{
+    position:absolute; inset:0; overflow:hidden;
+  }
+  .hero-media img{
+    width:100%; height:100%; object-fit:cover; object-position:60% 45%;
+    filter:saturate(0.92) contrast(1.05);
+  }
+  .hero-media::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(9,10,4,0.35) 0%, rgba(9,10,4,0.35) 30%, rgba(9,10,4,0.86) 78%, #0D0E06 100%),
+      linear-gradient(90deg, rgba(9,10,4,0.75) 0%, rgba(9,10,4,0.15) 46%, rgba(9,10,4,0.05) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    width:100%;
+    padding:0 32px 88px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .hero-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    color:var(--brass-bright);
+    letter-spacing:0.06em;
+    margin-bottom:22px;
+    opacity:0;
+    animation: rise .7s ease .1s forwards;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.6vw, 68px);
+    line-height:1.06;
+    max-width:15ch;
+    color:var(--ink);
+    opacity:0;
+    animation: rise .8s ease .25s forwards;
+  }
+  .hero .subhead-line{
+    font-family:'Oswald', sans-serif;
+    font-weight:500;
+    font-size:clamp(15px, 1.6vw, 19px);
+    color:var(--ink-muted);
+    margin-top:18px;
+    max-width:44ch;
+    opacity:0;
+    animation: rise .8s ease .4s forwards;
+  }
+  .hero p.sub{
+    margin-top:26px;
+    max-width:52ch;
+    color:var(--ink-muted);
+    font-size:16.5px;
+    opacity:0;
+    animation: rise .8s ease .55s forwards;
+  }
+  .hero-ctas{
+    margin-top:38px;
+    display:flex; gap:16px; flex-wrap:wrap;
+    opacity:0;
+    animation: rise .8s ease .7s forwards;
+  }
+  @keyframes rise{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .hero-scanline{
+    position:absolute; left:0; right:0; height:1px;
+    background:linear-gradient(90deg, transparent, var(--brass-bright), transparent);
+    opacity:0.55;
+    animation: scan 6s linear infinite;
+    z-index:1;
+  }
+  @keyframes scan{
+    0%{ top:8%; opacity:0;}
+    8%{opacity:.55;}
+    50%{ top:92%; opacity:.55;}
+    58%{opacity:0;}
+    100%{ top:92%; opacity:0;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:120px 0;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; margin-bottom:64px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:28px;
+  }
+  .section-head .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--brass);
+    letter-spacing:0.05em;
+  }
+  .section-head h2{
+    font-size:clamp(28px, 3.4vw, 42px);
+    margin-top:10px;
+    max-width:20ch;
+  }
+  .section-head .index{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px; color:var(--ink-dim);
+    white-space:nowrap;
+    padding-bottom:6px;
+  }
+
+  /* ---------- TECH SECTION ---------- */
+  .tech-row{
+    display:grid;
+    grid-template-columns: 1.15fr 1.85fr;
+    gap:48px;
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  .tech-row:last-child{border-bottom:1px solid var(--line);}
+  .tech-row .t-name{
+    font-family:'Oswald', sans-serif; font-weight:600;
+    font-size:22px;
+    color:var(--ink);
+  }
+  .tech-row .t-tag{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--brass);
+    margin-bottom:10px;
+    letter-spacing:0.04em;
+  }
+  .tech-row p{
+    color:var(--ink-muted);
+    max-width:56ch;
+    margin:0;
+    font-size:15.5px;
+  }
+  .tech-row .patent-note{
+    display:inline-block;
+    margin-top:14px;
+    font-size:12.5px;
+    color:var(--ink-dim);
+    font-family:'IBM Plex Mono', monospace;
+    border:1px solid var(--line-strong);
+    padding:4px 9px;
+  }
+  .spec-sub{
+    list-style:none;
+    margin:18px 0 0 0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .spec-sub li{
+    padding-left:16px;
+    border-left:2px solid var(--brass);
+  }
+  .spec-sub .spec-sub-label{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--brass-bright);
+    letter-spacing:0.02em;
+    margin-bottom:4px;
+  }
+  .spec-sub p{margin:0;}
+
+  /* ---------- APPLICATIONS ---------- */
+  .app-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .app-card{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:40px 34px;
+    background:var(--bg-alt);
+  }
+  .app-card .icon{
+    width:40px;height:40px;
+    margin-bottom:28px;
+    color:var(--brass);
+  }
+  .app-card h3{
+    font-size:19px;
+    margin-bottom:14px;
+    line-height:1.25;
+  }
+  .app-card p{
+    color:var(--ink-muted);
+    font-size:14.5px;
+    margin:0;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-grid h2{font-size:clamp(26px,3vw,36px); max-width:16ch; margin-bottom:26px;}
+  .about-grid .lede{color:var(--ink-muted); font-size:16px; max-width:52ch; margin-bottom:20px;}
+  .plate{
+    background:var(--olive);
+    border:1px solid var(--line-strong);
+    padding:34px 30px;
+    position:relative;
+  }
+  .plate::before, .plate::after,
+  .plate .rivet-tl, .plate .rivet-br{
+    content:"";
+    position:absolute;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--ink-dim);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.5);
+  }
+  .plate::before{top:12px; left:12px;}
+  .plate::after{top:12px; right:12px;}
+  .plate .rivet-tl{bottom:12px; left:12px;}
+  .plate .rivet-br{bottom:12px; right:12px;}
+  .plate dl{margin:0;}
+  .plate dt{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px; letter-spacing:0.06em;
+    color:#C7C4AE;
+    margin-bottom:4px;
+  }
+  .plate dd{
+    margin:0 0 22px 0;
+    font-family:'Oswald', sans-serif;
+    font-size:19px;
+    color:#F4F2E9;
+  }
+  .plate dd:last-child{margin-bottom:0;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap:64px;
+  }
+  form.inquiry{display:flex; flex-direction:column; gap:20px;}
+  .field label{
+    display:block; font-size:13px; color:var(--ink-muted); margin-bottom:7px;
+    font-family:'IBM Plex Mono', monospace; letter-spacing:0.03em;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:var(--surface);
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15px;
+    padding:12px 14px;
+    resize:vertical;
+  }
+  .field textarea{min-height:120px;}
+  .field input::placeholder, .field textarea::placeholder{color:var(--ink-dim);}
+  .field input:focus, .field textarea:focus{border-color:var(--brass);}
+  form.inquiry .btn{align-self:flex-start; margin-top:6px;}
+  .form-note{font-size:13px; color:var(--ink-dim); margin-top:-4px;}
+
+  .contact-plate{
+    border:1px solid var(--line-strong);
+    padding:32px;
+    background:var(--bg-alt);
+    height:fit-content;
+  }
+  .contact-plate .row{padding:16px 0; border-top:1px solid var(--line);}
+  .contact-plate .row:first-child{border-top:none; padding-top:0;}
+  .contact-plate .row .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--brass); letter-spacing:0.05em; margin-bottom:6px;
+  }
+  .contact-plate .row .v{font-size:16px;}
+  .contact-plate a.mail{color:var(--brass-bright); text-decoration:none; border-bottom:1px solid rgba(227,174,99,0.4);}
+  .contact-plate a.mail:hover{border-color:var(--brass-bright);}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 0;
+  }
+  footer .wrap{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;
+  }
+  footer .copy{font-size:13px; color:var(--ink-dim);}
+  footer .fwordmark{font-family:'Oswald', sans-serif; font-size:14px; color:var(--ink-muted);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    nav.links{display:none;}
+    .tech-row{grid-template-columns:1fr; gap:12px;}
+    .app-grid{grid-template-columns:1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .section-head{flex-direction:column; align-items:flex-start; gap:14px;}
+    section{padding:80px 0;}
+    .hero-content{padding-bottom:64px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark"><span class="cell-mark" aria-hidden="true"></span>ProtonX <span class="power">Power</span></a>
+    <nav class="links">
+      <a href="#technology">Technology</a>
+      <a href="#applications">Applications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn">Contact Sales</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-scanline" aria-hidden="true"></div>
+    <div class="hero-media">
+      <img src="hero-fig01.png" alt="A gloved operator secures a matte, angular ProtonX Power fuel cell cartridge into a tactical chest rig pouch, surrounded by rifle magazines, in a foggy forest setting.">
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">ADVANCED SOLID-LIQUID FUEL CELL SYSTEMS</p>
+      <h1>Powering Tomorrow's Tactical Missions</h1>
+      <p class="subhead-line">High-density, next-generation fuel cell systems for defense and off-grid energy</p>
+      <p class="sub">ProtonX Power LLC delivers high-density Advanced Solid-Liquid Fuel Cell solutions engineered for mission-critical, rugged off-grid environments.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn primary">Contact Sales</a>
+        <a href="#contact" class="btn">Request Tech Briefing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="label">TECHNOLOGY</span>
+          <h2>Core Capabilities &amp; Specifications</h2>
+        </div>
+        <span class="index">4 SPECIFICATIONS</span>
+      </div>
+
+      <div class="tech-row">
+        <div>
+          <span class="t-tag">ENERGY DENSITY</span>
+          <div class="t-name">Ultra-High Energy Density (10x Battery Equivalent)</div>
+        </div>
+        <div>
+          <p>Delivers a dramatically superior weight-to-power ratio compared to conventional lithium-ion batteries.</p>
+          <ul class="spec-sub">
+            <li>
+              <span class="spec-sub-label">PRE-ACTIVATION (DRY TRANSPORT)</span>
+              <p>Weighs ~320g for a 500Wh mission, achieving over 90% net weight reduction (~0.7 lbs vs. ~7.7 lbs CWB-150) for long-range insertion and air-drop operations.</p>
+            </li>
+            <li>
+              <span class="spec-sub-label">POST-ACTIVATION (WATER INCLUDED)</span>
+              <p>Weighs ~820g even when pre-loaded with 500ml water from HQ, maintaining a 76.6% weight savings in water-scarce environments.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tech-row">
+        <div>
+          <span class="t-tag">ACTIVATION</span>
+          <div class="t-name">Instant On-Demand Activation (&lt;1s Response)</div>
+        </div>
+        <p>Engineered with zero thermal delay — a single field action with instantly available water or urine brings the system to full operational output.</p>
+      </div>
+
+      <div class="tech-row">
+        <div>
+          <span class="t-tag">STORAGE STABILITY</span>
+          <div class="t-name">0% Self-Discharge (Infinite Dry-Shelf Life)</div>
+        </div>
+        <p>Eliminates shelf-life degradation in long-term dry storage. Operates reliably across extreme temperature ranges (-20°C to 50°C) with zero power loss until field activation.</p>
+      </div>
+
+      <div class="tech-row">
+        <div>
+          <span class="t-tag">SAFETY &amp; RUGGEDNESS</span>
+          <div class="t-name">Non-Pressurized &amp; Rugged Energy Storage</div>
+        </div>
+        <p>Features safe solid/liquid chemical media with no compressed hydrogen gas or thermal runaway risks. Completely non-explosive and safe for tactical transport, parachuting, and rugged off-grid missions.
+          <span class="patent-note">PATENT-PENDING</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section id="applications" style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head" style="border-bottom:none; margin-bottom:0;">
+        <div>
+          <span class="label">DEPLOYMENT</span>
+          <h2>Where it goes to work</h2>
+        </div>
+        <span class="index">3 DOMAINS</span>
+      </div>
+    </div>
+    <div class="wrap" style="padding-top:56px;">
+      <div class="app-grid">
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="20" cy="20" r="4.5"/>
+            <path d="M20 15.5V6M20 24.5V34M15.5 20H6M24.5 20H34"/>
+            <circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/>
+            <path d="M10.1 9.9 16 16M23.9 9.9 24 16M10.1 30.1 16 24M29.9 30.1 24 24"/>
+          </svg>
+          <h3>Defense &amp; Tactical Power</h3>
+          <p>Next-generation power for UAVs, ground robots (UGV), tactical communications gear, and dismounted-operator field kits.</p>
+        </div>
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M20 5 33 32H7Z"/>
+            <path d="M20 5 20 32M13.5 20h13"/>
+            <path d="M4 34h32"/>
+          </svg>
+          <h3>Off-Grid &amp; Expeditionary Energy</h3>
+          <p>Modular energy for disaster-relief operations, remote research stations, and mobile equipment working in harsh environments.</p>
+        </div>
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M20 5 33 10v10c0 9-6 14.5-13 16-7-1.5-13-7-13-16V10Z"/>
+            <path d="M15 20l3.5 3.5L26 16"/>
+          </svg>
+          <h3>Mission-Critical Backup Systems</h3>
+          <p>Ultra-high-reliability backup power for government and defense installations where mission continuity cannot be compromised.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <span class="label">ABOUT PROTONX POWER</span>
+          <h2 style="margin-top:10px;">A deep-tech electrochemistry company, built to outgrow the battery</h2>
+          <p class="lede">ProtonX Power LLC is built on proprietary, deep-tech electrochemistry that pushes past the limits of conventional energy storage — engineered from the ground up for the next generation of energy.</p>
+          <p class="lede">Our research, development, and core intellectual property are US-based and patent-pending, the foundation of an independent technology platform built for mission-critical use.</p>
+        </div>
+        <div class="plate">
+          <span class="rivet-tl" aria-hidden="true"></span><span class="rivet-br" aria-hidden="true"></span>
+          <dl>
+            <dt>LOCATION</dt>
+            <dd>Illinois, USA</dd>
+            <dt>R&amp;D &amp; IP</dt>
+            <dd>US-Based, Patent-Pending</dd>
+            <dt>FOCUS</dt>
+            <dd>Advanced Solid-Liquid Fuel Cells</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--bg-alt); border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="label">CONTACT</span>
+          <h2>Talk to the team</h2>
+        </div>
+        <span class="index">INQUIRIES</span>
+      </div>
+
+      <div class="contact-grid">
+        <form class="inquiry" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="54088447-50f1-4dab-9563-b19aeacb2dc5">
+          <input type="hidden" name="subject" value="New Contact Inquiry - ProtonX Power">
+          <div class="field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="f-org">Organization / Agency</label>
+            <input id="f-org" name="organization" type="text" placeholder="Company, agency, or unit">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" placeholder="you@organization.com" required>
+          </div>
+          <div class="field">
+            <label for="f-msg">Message</label>
+            <textarea id="f-msg" name="message" placeholder="Tell us about your application or mission requirement"></textarea>
+          </div>
+          <button type="submit" class="btn primary">Send inquiry</button>
+          <p class="form-note">We respond to qualified inquiries within two business days.</p>
+        </form>
+
+        <div class="contact-plate">
+          <div class="row">
+            <div class="k">EMAIL</div>
+            <div class="v"><a class="mail" href="mailto:contact@pxp-usa.com">contact@pxp-usa.com</a></div>
+          </div>
+          <div class="row">
+            <div class="k">LOCATION</div>
+            <div class="v">Illinois, USA</div>
+          </div>
+          <div class="row">
+            <div class="k">FOR</div>
+            <div class="v">Defense, government &amp; off-grid energy partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="fwordmark">ProtonX Power LLC</span>
+    <span class="copy">© 2026 ProtonX Power LLC. All rights reserved.</span>
+  </div>
+</footer>
+
+
+</body>
+</html>
