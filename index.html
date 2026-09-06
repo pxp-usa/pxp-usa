@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="/favicon.png">
-<link rel="icon" href="https://pxp-usa.com/favicon.png" sizes="48x48" type="image/png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ProtonX Power LLC — Advanced Solid-Liquid Fuel Cell Systems</title>
@@ -277,6 +275,39 @@
     margin-bottom:4px;
   }
   .spec-sub p{margin:0;}
+
+  /* ---------- VIDEO DEMO ---------- */
+  .video-cta{
+    display:grid;
+    grid-template-columns: auto 1fr auto;
+    align-items:center;
+    gap:36px;
+    border:1px solid var(--line-strong);
+    background:var(--bg-alt);
+    padding:40px 44px;
+  }
+  .video-cta .play-badge{
+    width:64px; height:64px;
+    border:1.6px solid var(--brass);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .video-cta .play-badge svg{width:22px; height:22px; color:var(--brass);}
+  .video-cta .vc-text h3{
+    font-size:clamp(20px, 2.4vw, 27px);
+    margin-bottom:10px;
+  }
+  .video-cta .vc-text p{
+    color:var(--ink-muted);
+    font-size:15px;
+    margin:0;
+    max-width:62ch;
+  }
+  .video-cta .btn{white-space:nowrap;}
+  @media (max-width: 860px){
+    .video-cta{grid-template-columns:1fr; text-align:left;}
+    .video-cta .btn{width:100%; text-align:center;}
+  }
 
   /* ---------- APPLICATIONS ---------- */
   .app-grid{
@@ -556,6 +587,22 @@
     </div>
   </section>
 
+  <!-- VIDEO DEMO -->
+  <section id="demo" style="padding-top:0;">
+    <div class="wrap">
+      <div class="video-cta">
+        <div class="play-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="vc-text">
+          <h3>Tactical Expeditionary Power in Action</h3>
+          <p>See how the Proton-X system replaces 3.5kg of heavy Li-ion batteries with a lightweight 320g water-activated solution.</p>
+        </div>
+        <button type="button" class="btn primary" onclick="openDemoVideo()">Watch Concept Demo Video</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
@@ -643,6 +690,17 @@
   </div>
 </footer>
 
+
+<script>
+  function openDemoVideo(){
+    var videoFile = "Concept presentation Capt ver.3. 1080.mp4";
+    window.open(
+      encodeURI(videoFile),
+      "protonxDemoVideo",
+      "width=960,height=560,resizable=yes,scrollbars=yes,noopener"
+    );
+  }
+</script>
 
 </body>
 </html>
