@@ -1,16 +1,18 @@
-## Hi there 👋
+# ProtonX Power LLC
 
-<!--
-**pxp-usa/pxp-usa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Next-Generation On-Demand Tactical Energy Systems**
 
-Here are some ideas to get you started:
+ProtonX Power develops ultra-high density, field-activated power solutions engineered for mission-critical, rugged off-grid environments and defense applications.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+---
+
+### Key Capabilities
+- **10x Battery Equivalent Density:** Over 90% net weight reduction for dismounted operators.
+- **Instant Field-Fluid Activation:** Zero pre-charging required.
+- **Inert & Safe Storage:** Zero self-discharge, zero thermal runaway risk.
+
+---
+
+### Contact & Information
+- **Official Website:** [pxp-usa.com](https://pxp-usa.com)
+- **Inquiries:** [contact@pxp-usa.com](mailto:contact@pxp-usa.com)
