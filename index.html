@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-mode="defense">
 <head>
 <link rel="icon" type="image/x-icon" href="/favicon.png">
 <link rel="icon" href="https://pxp-usa.com/favicon.png" sizes="48x48" type="image/png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProtonX Power LLC — On-Demand Tactical Energy System</title>
+<title>ProtonX Power LLC — On-Demand Energy Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
+    /* Dark Theme Variables (Defense Mode Default) */
     --bg:#111207;
     --bg-alt:#181A0F;
     --surface:#1D1F14;
@@ -23,6 +24,25 @@
     --brass:#C4903F;
     --brass-bright:#E3AE63;
     --maxw: 1180px;
+
+    /* Light Theme Overlay Color */
+    --hero-overlay: linear-gradient(180deg, rgba(245,246,248,0.4) 0%, rgba(245,246,248,0.7) 60%, #F5F6F8 100%),
+                    linear-gradient(90deg, rgba(245,246,248,0.9) 0%, rgba(245,246,248,0.4) 50%, rgba(245,246,248,0.1) 100%);
+  }
+
+  /* Commercial Light Mode Theme Override */
+  [data-mode="commercial"] {
+    --bg:#F5F6F8;
+    --bg-alt:#FFFFFF;
+    --surface:#EAECEF;
+    --line: rgba(20,25,30,0.12);
+    --line-strong: rgba(20,25,30,0.25);
+    --ink:#14191E;
+    --ink-muted:#505862;
+    --ink-dim:#8A929C;
+    --olive:#D9E0D0;
+    --brass:#9E6E27;
+    --brass-bright:#C4903F;
   }
 
   *{box-sizing:border-box;}
@@ -35,6 +55,7 @@
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   h1,h2,h3{
     font-family:'Oswald', sans-serif;
@@ -50,41 +71,74 @@
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
 
-  /* ---------- NAV ---------- */
+  /* ---------- MODE SWITCHING CONTENT LOGIC ---------- */
+  [data-mode="commercial"] .defense-content { display: none !important; }
+  [data-mode="defense"] .commercial-content { display: none !important; }
+
+  /* ---------- NAV (Always Dark Header) ---------- */
   header.site-nav{
     position:fixed; top:0; left:0; right:0; z-index:50;
-    background:rgba(17,18,7,0.72);
+    background:rgba(17,18,7,0.85);
     backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid rgba(237,234,224,0.14);
+    color:#EDEAE0;
   }
   .nav-inner{
     max-width:var(--maxw); margin:0 auto; padding:18px 32px;
     display:flex; align-items:center; justify-content:space-between;
+    gap:20px;
   }
   .wordmark{
     display:flex; align-items:center; gap:10px;
     font-family:'Oswald', sans-serif; font-size:19px; font-weight:600;
     letter-spacing:0.02em;
     text-decoration:none;
+    color:#EDEAE0;
   }
   .wordmark .cell-mark{
     width:20px;height:26px;
-    border:1.6px solid var(--brass);
+    border:1.6px solid #C4903F;
     position:relative;
     flex-shrink:0;
   }
   .wordmark .cell-mark::after{
     content:"";
     position:absolute; left:2px; right:2px; bottom:3px; height:8px;
-    background:var(--brass);
+    background:#C4903F;
   }
-  .wordmark span.power{color:var(--ink-muted); font-weight:400;}
-  nav.links{display:flex; gap:34px; align-items:center;}
+  .wordmark span.power{color:#A5A28C; font-weight:400;}
+
+  /* MODE TOGGLE SWITCH (Inside Header) */
+  .mode-switch{
+    display:inline-flex;
+    background:#1D1F14;
+    border:1px solid rgba(237,234,224,0.28);
+    padding:3px;
+    border-radius:2px;
+  }
+  .mode-btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.04em;
+    padding:6px 14px;
+    border:none;
+    background:transparent;
+    color:#A5A28C;
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  .mode-btn.active{
+    background:#C4903F;
+    color:#161707;
+    font-weight:600;
+  }
+
+  nav.links{display:flex; gap:28px; align-items:center;}
   nav.links a{
-    font-size:14.5px; color:var(--ink-muted); text-decoration:none;
+    font-size:14.5px; color:#A5A28C; text-decoration:none;
     transition:color .15s ease;
   }
-  nav.links a:hover, nav.links a:focus-visible{color:var(--ink);}
+  nav.links a:hover, nav.links a:focus-visible{color:#EDEAE0;}
   .btn{
     display:inline-block;
     font-family:'IBM Plex Sans', sans-serif;
@@ -97,20 +151,29 @@
     cursor:pointer;
     transition:background .18s ease, color .18s ease, border-color .18s ease;
   }
-  .btn:hover, .btn:focus-visible{background:var(--brass); color:#161707;}
-  .btn.primary{background:var(--brass); color:#161707;}
-  .btn.primary:hover, .btn.primary:focus-visible{background:var(--brass-bright); border-color:var(--brass-bright);}
-  .btn:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible{
-    outline:2px solid var(--brass-bright); outline-offset:2px;
+  .header-btn {
+    border-color: #C4903F;
+    color: #EDEAE0;
   }
-
+  .header-btn:hover {
+    background: #C4903F;
+    color: #161707;
+  }
+  .btn:hover, .btn:focus-visible{background:var(--brass); color:#FFFFFF;}
+  [data-mode="defense"] .btn:hover{color:#161707;}
+  
+  .btn.primary{background:var(--brass); color:#FFFFFF;}
+  [data-mode="defense"] .btn.primary{color:#161707;}
+  .btn.primary:hover, .btn.primary:focus-visible{background:var(--brass-bright); border-color:var(--brass-bright);}
+  
   /* ---------- HERO ---------- */
   .hero{
     position:relative;
     min-height:100vh;
     display:flex;
     align-items:flex-end;
-    background:#000;
+    background:var(--bg);
+    transition: background-color 0.3s ease;
   }
   .hero-media{
     position:absolute; inset:0; overflow:hidden;
@@ -119,13 +182,26 @@
     width:100%; height:100%; object-fit:cover; object-position:60% 45%;
     filter:saturate(0.92) contrast(1.05);
   }
+  
+  /* Hero Overlays by Mode */
   .hero-media::before{
     content:"";
     position:absolute; inset:0;
+    transition: background 0.3s ease;
+  }
+  [data-mode="defense"] .hero-media::before{
     background:
       linear-gradient(180deg, rgba(9,10,4,0.35) 0%, rgba(9,10,4,0.35) 30%, rgba(9,10,4,0.86) 78%, #0D0E06 100%),
       linear-gradient(90deg, rgba(9,10,4,0.75) 0%, rgba(9,10,4,0.15) 46%, rgba(9,10,4,0.05) 100%);
   }
+
+  /* COMMERCIAL HERO OVERLAY ENHANCEMENT (텍스트 영역 가독성 보장) */
+  [data-mode="commercial"] .hero-media::before{
+    background: 
+      linear-gradient(180deg, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.65) 60%, var(--bg) 100%),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.5) 45%, rgba(15, 23, 42, 0.1) 100%) !important;
+  }
+
   .hero-content{
     position:relative; z-index:2;
     width:100%;
@@ -145,7 +221,7 @@
   .hero h1{
     font-size:clamp(38px, 5.6vw, 68px);
     line-height:1.06;
-    max-width:15ch;
+    max-width:16ch;
     color:var(--ink);
     opacity:0;
     animation: rise .8s ease .25s forwards;
@@ -156,13 +232,13 @@
     font-size:clamp(15px, 1.6vw, 19px);
     color:var(--ink-muted);
     margin-top:18px;
-    max-width:44ch;
+    max-width:48ch;
     opacity:0;
     animation: rise .8s ease .4s forwards;
   }
   .hero p.sub{
     margin-top:26px;
-    max-width:52ch;
+    max-width:54ch;
     color:var(--ink-muted);
     font-size:16.5px;
     opacity:0;
@@ -174,6 +250,43 @@
     opacity:0;
     animation: rise .8s ease .7s forwards;
   }
+
+  /* ---------- COMMERCIAL MODE HERO TEXT FIX ---------- */
+  [data-mode="commercial"] .hero h1 {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9);
+  }
+
+  [data-mode="commercial"] .hero .subhead-line {
+    color: #F1F5F9 !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  }
+
+  [data-mode="commercial"] .hero p.sub {
+    color: #CBD5E1 !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+  }
+
+  [data-mode="commercial"] .hero-tag {
+    color: #FFB347 !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+  }
+
+  [data-mode="commercial"] .hero-ctas .btn:not(.primary) {
+    color: #FFFFFF !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    background: rgba(15, 23, 42, 0.4) !important;
+    backdrop-filter: blur(4px);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  [data-mode="commercial"] .hero-ctas .btn:not(.primary):hover {
+    background: #C4903F !important;
+    border-color: #C4903F !important;
+    color: #FFFFFF !important;
+  }
+
   @keyframes rise{
     from{opacity:0; transform:translateY(16px);}
     to{opacity:1; transform:translateY(0);}
@@ -195,7 +308,7 @@
   }
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding:120px 0;}
+  section{padding:120px 0; transition: background-color 0.3s ease;}
   .section-head{
     display:flex; justify-content:space-between; align-items:flex-end;
     gap:40px; margin-bottom:64px;
@@ -210,7 +323,7 @@
   .section-head h2{
     font-size:clamp(28px, 3.4vw, 42px);
     margin-top:10px;
-    max-width:20ch;
+    max-width:22ch;
   }
   .section-head .index{
     font-family:'IBM Plex Mono', monospace;
@@ -256,27 +369,6 @@
     border:1px solid var(--line-strong);
     padding:4px 9px;
   }
-  .spec-sub{
-    list-style:none;
-    margin:18px 0 0 0;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .spec-sub li{
-    padding-left:16px;
-    border-left:2px solid var(--brass);
-  }
-  .spec-sub .spec-sub-label{
-    display:block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
-    color:var(--brass-bright);
-    letter-spacing:0.02em;
-    margin-bottom:4px;
-  }
-  .spec-sub p{margin:0;}
 
   /* ---------- VIDEO DEMO ---------- */
   .video-cta{
@@ -348,7 +440,7 @@
     gap:64px;
     align-items:start;
   }
-  .about-grid h2{font-size:clamp(26px,3vw,36px); max-width:16ch; margin-bottom:26px;}
+  .about-grid h2{font-size:clamp(26px,3vw,36px); max-width:18ch; margin-bottom:26px;}
   .about-grid .lede{color:var(--ink-muted); font-size:16px; max-width:52ch; margin-bottom:20px;}
   .plate{
     background:var(--olive);
@@ -363,7 +455,7 @@
     width:7px; height:7px;
     border-radius:50%;
     background:var(--ink-dim);
-    box-shadow:inset 0 1px 1px rgba(0,0,0,0.5);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,0.3);
   }
   .plate::before{top:12px; left:12px;}
   .plate::after{top:12px; right:12px;}
@@ -373,14 +465,14 @@
   .plate dt{
     font-family:'IBM Plex Mono', monospace;
     font-size:11px; letter-spacing:0.06em;
-    color:#C7C4AE;
+    color:var(--ink-muted);
     margin-bottom:4px;
   }
   .plate dd{
     margin:0 0 22px 0;
     font-family:'Oswald', sans-serif;
     font-size:19px;
-    color:#F4F2E9;
+    color:var(--ink);
   }
   .plate dd:last-child{margin-bottom:0;}
 
@@ -424,7 +516,7 @@
     font-size:11.5px; color:var(--brass); letter-spacing:0.05em; margin-bottom:6px;
   }
   .contact-plate .row .v{font-size:16px;}
-  .contact-plate a.mail{color:var(--brass-bright); text-decoration:none; border-bottom:1px solid rgba(227,174,99,0.4);}
+  .contact-plate a.mail{color:var(--brass-bright); text-decoration:none; border-bottom:1px solid var(--line-strong);}
   .contact-plate a.mail:hover{border-color:var(--brass-bright);}
 
   /* ---------- FOOTER ---------- */
@@ -456,12 +548,19 @@
 <header class="site-nav">
   <div class="nav-inner">
     <a href="#top" class="wordmark"><span class="cell-mark" aria-hidden="true"></span>ProtonX <span class="power">Power</span></a>
+    
+    <!-- MODE SWITCHER -->
+    <div class="mode-switch" aria-label="Target Market Selector">
+      <button type="button" class="mode-btn active" id="btn-defense" onclick="setMarketMode('defense')">DEFENSE</button>
+      <button type="button" class="mode-btn" id="btn-commercial" onclick="setMarketMode('commercial')">COMMERCIAL</button>
+    </div>
+
     <nav class="links">
       <a href="#technology">Technology</a>
       <a href="#applications">Applications</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn">Request Tech Briefing</a>
+      <a href="#contact" class="btn header-btn">Request Tech Briefing</a>
     </nav>
   </div>
 </header>
@@ -472,13 +571,26 @@
   <section class="hero" aria-label="Introduction">
     <div class="hero-scanline" aria-hidden="true"></div>
     <div class="hero-media">
-      <img src="hero-fig01.png" alt="A gloved operator secures a matte, angular ProtonX Power cartridge into a tactical chest rig pouch, surrounded by rifle magazines, in a foggy forest setting.">
+      <!-- Image switching by mode -->
+      <img id="hero-img" src="hero-fig01.png" alt="ProtonX Power Modular Energy Pack">
     </div>
     <div class="hero-content">
-      <p class="hero-tag">NEXT-GENERATION ON-DEMAND TACTICAL ENERGY SYSTEMS</p>
-      <h1>Powering Tomorrow's Tactical Missions</h1>
-      <p class="subhead-line">High-density, field-activated power solutions engineered for mission-critical, rugged off-grid environments.</p>
-      <p class="sub">ProtonX Power LLC delivers high-density On-Demand Tactical Energy System solutions engineered for mission-critical, rugged off-grid environments.</p>
+      <!-- DEFENSE HERO -->
+      <div class="defense-content">
+        <p class="hero-tag">NEXT-GENERATION ON-DEMAND TACTICAL ENERGY SYSTEMS</p>
+        <h1>Powering Tomorrow's Tactical Missions</h1>
+        <p class="subhead-line">High-density, field-activated power solutions engineered for mission-critical, rugged off-grid environments.</p>
+        <p class="sub">ProtonX Power LLC delivers high-density On-Demand Tactical Energy System solutions engineered for mission-critical, rugged off-grid environments.</p>
+      </div>
+
+      <!-- COMMERCIAL HERO -->
+      <div class="commercial-content">
+        <p class="hero-tag">NEXT-GENERATION ON-DEMAND EXTREME ENERGY PLATFORM</p>
+        <h1>Powering Extreme Off-Grid Energy Needs</h1>
+        <p class="subhead-line">High-density, hydro-activated power solutions engineered for disaster relief, robotics, and critical infrastructure.</p>
+        <p class="sub">ProtonX Power LLC provides zero-loss, ultra-lightweight power modules built for extreme off-grid operations where traditional batteries fail.</p>
+      </div>
+
       <div class="hero-ctas">
         <a href="#contact" class="btn primary">Request Tech Briefing</a>
         <button type="button" class="btn" onclick="openDemoVideo()">Watch Concept Demo Video</button>
@@ -502,7 +614,10 @@
           <span class="t-tag">ENERGY DENSITY</span>
           <div class="t-name">10x Battery Equivalent Density</div>
         </div>
-        <p>Delivers over 90% net weight reduction for dismounted operators using inert, field-activated power cartridges — drastically cutting the load and volume required for tactical missions.</p>
+        <div>
+          <p class="defense-content">Delivers over 90% net weight reduction for dismounted operators using inert, field-activated power cartridges — drastically cutting the load and volume required for tactical missions.</p>
+          <p class="commercial-content">Delivers over 90% net weight reduction for drones, field equipment, and expeditions using inert, hydro-activated energy cartridges — dramatically extending operational endurance.</p>
+        </div>
       </div>
 
       <div class="tech-row">
@@ -510,15 +625,21 @@
           <span class="t-tag">ACTIVATION</span>
           <div class="t-name">Field-Fluid Instant Activation (&lt;1s)</div>
         </div>
-        <p>Engineered for zero thermal delay — activated instantly using field-scavenged aqueous fluids with zero pre-charging required.</p>
+        <div>
+          <p class="defense-content">Engineered for zero thermal delay — activated instantly using field-scavenged aqueous fluids with zero pre-charging required.</p>
+          <p class="commercial-content">Zero pre-charging necessary — instantly activated on-site using available aqueous fluids, providing immediate power in emergency situations.</p>
+        </div>
       </div>
 
       <div class="tech-row">
         <div>
           <span class="t-tag">STORAGE &amp; SAFETY</span>
-          <div class="t-name">Inherently Ballistic Safe &amp; Inert Storage</div>
+          <div class="t-name">Inherently Safe &amp; Zero Self-Discharge</div>
         </div>
-        <p>Zero thermal runaway or explosion risks even under direct ballistic penetration. Features zero self-discharge in long-term storage and operates reliably across extreme environments (-20°C to 50°C).</p>
+        <div>
+          <p class="defense-content">Zero thermal runaway or explosion risks even under direct ballistic penetration. Features zero self-discharge in long-term storage and operates reliably across extreme environments (-20°C to 50°C).</p>
+          <p class="commercial-content">Eliminates thermal runaway and fire risks inherent to traditional lithium-ion batteries. Features indefinite shelf-life with zero self-discharge, operating reliably in extreme temperatures (-20°C to 50°C).</p>
+        </div>
       </div>
 
       <div class="tech-row">
@@ -526,7 +647,7 @@
           <span class="t-tag">ARCHITECTURE</span>
           <div class="t-name">Proprietary High-Efficiency Power Architecture</div>
         </div>
-        <p>Advanced catalytic cell design that converts field-activated media into clean, reliable tactical power.
+        <p>Advanced catalytic cell design that converts activated media into clean, reliable power.
           <span class="patent-note">PATENT-PENDING</span>
         </p>
       </div>
@@ -545,7 +666,9 @@
       </div>
     </div>
     <div class="wrap" style="padding-top:56px;">
-      <div class="app-grid">
+      
+      <!-- DEFENSE APPLICATIONS -->
+      <div class="app-grid defense-content">
         <div class="app-card">
           <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
             <circle cx="20" cy="20" r="4.5"/>
@@ -574,6 +697,38 @@
           <p>Ultra-high-reliability backup power for government and defense installations where mission continuity cannot be compromised.</p>
         </div>
       </div>
+
+      <!-- COMMERCIAL APPLICATIONS -->
+      <div class="app-grid commercial-content">
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <circle cx="20" cy="20" r="4.5"/>
+            <path d="M20 15.5V6M20 24.5V34M15.5 20H6M24.5 20H34"/>
+            <circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/>
+            <path d="M10.1 9.9 16 16M23.9 9.9 24 16M10.1 30.1 16 24M29.9 30.1 24 24"/>
+          </svg>
+          <h3>Commercial Drones &amp; Robotics</h3>
+          <p>Multiplies flight time and endurance for survey drones, delivery UAVs, and autonomous robots operating in remote industrial sites.</p>
+        </div>
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M20 5 33 32H7Z"/>
+            <path d="M20 5 20 32M13.5 20h13"/>
+            <path d="M4 34h32"/>
+          </svg>
+          <h3>Disaster Relief &amp; First Responders</h3>
+          <p>Instant power generation for emergency comms, medical devices, and rescue teams operating in grid-down disaster zones.</p>
+        </div>
+        <div class="app-card">
+          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M20 5 33 10v10c0 9-6 14.5-13 16-7-1.5-13-7-13-16V10Z"/>
+            <path d="M15 20l3.5 3.5L26 16"/>
+          </svg>
+          <h3>Zero-Risk Industrial Backup Power</h3>
+          <p>Ultra-safe, non-explosive backup power solutions for hazardous material facilities, aviation, and remote research stations.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -585,8 +740,11 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </div>
         <div class="vc-text">
-          <h3>Tactical Expeditionary Power in Action</h3>
-          <p>See how the Proton-X system replaces 3.5kg of heavy Li-ion batteries with an ultra-lightweight, field-activated solution—reducing overall load by over 90%.</p>
+          <h3 class="defense-content">Tactical Expeditionary Power in Action</h3>
+          <h3 class="commercial-content">Ultra-Lightweight Energy Storage in Action</h3>
+          
+          <p class="defense-content">See how the Proton-X system replaces 3.5kg of heavy Li-ion batteries with an ultra-lightweight, field-activated solution—reducing overall load by over 90%.</p>
+          <p class="commercial-content">Discover how ProtonX Power replaces heavy lithium-ion batteries with an ultra-lightweight, water-activated module—delivering unmatched energy density.</p>
         </div>
         <button type="button" class="btn primary" onclick="openDemoVideo()">Watch Concept Demo Video</button>
       </div>
@@ -611,7 +769,8 @@
             <dt>R&amp;D &amp; IP</dt>
             <dd>US-Based, Patent-Pending</dd>
             <dt>FOCUS</dt>
-            <dd>On-Demand Tactical Energy System</dd>
+            <dd class="defense-content">On-Demand Tactical Energy System</dd>
+            <dd class="commercial-content">On-Demand Extreme Energy Platform</dd>
           </dl>
         </div>
       </div>
@@ -647,7 +806,7 @@
           </div>
           <div class="field">
             <label for="f-msg">Message</label>
-            <textarea id="f-msg" name="message" placeholder="Tell us about your application or mission requirement"></textarea>
+            <textarea id="f-msg" name="message" placeholder="Tell us about your application or project requirement"></textarea>
           </div>
           <button type="submit" class="btn primary">Send inquiry</button>
           <p class="form-note">We respond to qualified inquiries within two business days.</p>
@@ -664,7 +823,8 @@
           </div>
           <div class="row">
             <div class="k">FOR</div>
-            <div class="v">Defense, government &amp; off-grid energy partners</div>
+            <div class="v defense-content">Defense, government &amp; off-grid energy partners</div>
+            <div class="v commercial-content">Commercial, disaster-relief &amp; industrial energy partners</div>
           </div>
         </div>
       </div>
@@ -680,8 +840,24 @@
   </div>
 </footer>
 
-
 <script>
+  function setMarketMode(mode) {
+    document.documentElement.setAttribute('data-mode', mode);
+    var btnDefense = document.getElementById('btn-defense');
+    var btnCommercial = document.getElementById('btn-commercial');
+    var heroImg = document.getElementById('hero-img');
+    
+    if (mode === 'defense') {
+      btnDefense.classList.add('active');
+      btnCommercial.classList.remove('active');
+      heroImg.src = 'hero-fig01.png'; // 군용 히어로 이미지
+    } else {
+      btnCommercial.classList.add('active');
+      btnDefense.classList.remove('active');
+      heroImg.src = 'hero-fig02.png'; // 민간용 히어로 이미지
+    }
+  }
+
   function openDemoVideo(){
     var videoFile = "concept-demo.mp4";
     window.open(
