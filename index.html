@@ -475,56 +475,259 @@
     color:var(--ink);
   }
   .plate dd:last-child{margin-bottom:0;}
-  
-  /* About page body copy */
-  #about .lede {
-  margin-top: 0;
-  margin-bottom: 10px;
-  }
+
 
   /* ---------- CONTACT ---------- */
-  .contact-grid{
+
+  #contact{
+    scroll-margin-top:90px;
+    background:var(--bg-alt);
+    border-top:1px solid var(--line);
+  }
+
+  .contact-intro{
+    max-width:760px;
+    margin-bottom:38px;
+  }
+
+  .contact-intro h2{
+    font-size:clamp(30px,3.6vw,44px);
+    margin-top:10px;
+    margin-bottom:14px;
+  }
+
+  .contact-intro p{
+    color:var(--ink-muted);
+    max-width:72ch;
+    margin:0;
+  }
+
+  /* ---------- CONTACT PATH SELECTOR ---------- */
+
+  .contact-selector{
+    display:inline-flex;
+    border:1px solid var(--line-strong);
+    background:var(--bg);
+    padding:3px;
+    margin-bottom:44px;
+  }
+
+  .contact-path-btn{
+    border:0;
+    background:transparent;
+    color:var(--ink-muted);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    padding:10px 18px;
+    cursor:pointer;
+    transition:background .18s ease, color .18s ease;
+  }
+
+  .contact-path-btn:hover{
+    color:var(--ink);
+  }
+
+  .contact-path-btn.active{
+    background:var(--brass);
+    color:#161707;
+    font-weight:600;
+  }
+
+  /* ---------- ONE CONTACT VIEW AT A TIME ---------- */
+
+  .contact-view{
+    display:none;
+  }
+
+  .contact-view.active{
     display:grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns:1.35fr .85fr;
     gap:64px;
+    align-items:start;
+    animation:contactFade .22s ease;
   }
-  form.inquiry{display:flex; flex-direction:column; gap:20px;}
+
+  @keyframes contactFade{
+    from{
+      opacity:0;
+      transform:translateY(5px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  /* ---------- CONTACT FORM ---------- */
+
+  .contact-copy .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.05em;
+    color:var(--brass);
+    margin-bottom:8px;
+  }
+
+  .contact-copy h3{
+    font-size:clamp(25px,2.7vw,34px);
+    margin-bottom:14px;
+  }
+
+  .contact-copy > p{
+    color:var(--ink-muted);
+    max-width:58ch;
+    margin:0 0 28px;
+  }
+
+  form.inquiry{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+
   .field label{
-    display:block; font-size:13px; color:var(--ink-muted); margin-bottom:7px;
-    font-family:'IBM Plex Mono', monospace; letter-spacing:0.03em;
+    display:block;
+    font-size:13px;
+    color:var(--ink-muted);
+    margin-bottom:7px;
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:.03em;
   }
-  .field input, .field textarea{
+
+  .field input,
+  .field textarea,
+  .field select{
     width:100%;
     background:var(--surface);
     border:1px solid var(--line-strong);
     color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:'IBM Plex Sans',sans-serif;
     font-size:15px;
     padding:12px 14px;
     resize:vertical;
+    border-radius:0;
   }
-  .field textarea{min-height:120px;}
-  .field input::placeholder, .field textarea::placeholder{color:var(--ink-dim);}
-  .field input:focus, .field textarea:focus{border-color:var(--brass);}
-  form.inquiry .btn{align-self:flex-start; margin-top:6px;}
-  .form-note{font-size:13px; color:var(--ink-dim); margin-top:-4px;}
+
+  .field textarea{
+    min-height:130px;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder{
+    color:var(--ink-dim);
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus{
+    outline:none;
+    border-color:var(--brass);
+  }
+
+  .field select{
+    appearance:auto;
+  }
+
+  form.inquiry .btn{
+    align-self:flex-start;
+    margin-top:5px;
+  }
+
+  .form-note{
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-top:-3px;
+  }
+
+  /* ---------- CONTACT INFORMATION PANEL ---------- */
 
   .contact-plate{
     border:1px solid var(--line-strong);
-    padding:32px;
-    background:var(--bg-alt);
+    padding:30px;
+    background:var(--bg);
     height:fit-content;
   }
-  .contact-plate .row{padding:16px 0; border-top:1px solid var(--line);}
-  .contact-plate .row:first-child{border-top:none; padding-top:0;}
-  .contact-plate .row .k{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px; color:var(--brass); letter-spacing:0.05em; margin-bottom:6px;
-  }
-  .contact-plate .row .v{font-size:16px;}
-  .contact-plate a.mail{color:var(--brass-bright); text-decoration:none; border-bottom:1px solid var(--line-strong);}
-  .contact-plate a.mail:hover{border-color:var(--brass-bright);}
 
+  .contact-plate .plate-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.05em;
+    color:var(--brass);
+    margin-bottom:8px;
+  }
+
+  .contact-plate h4{
+    font-family:'Oswald',sans-serif;
+    font-size:22px;
+    font-weight:500;
+    margin:0 0 18px;
+  }
+
+  .contact-plate .row{
+    padding:15px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .contact-plate .row:first-of-type{
+    border-top:none;
+    padding-top:0;
+  }
+
+  .contact-plate .row .k{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:.05em;
+    margin-bottom:5px;
+  }
+
+  .contact-plate .row .v{
+    font-size:15px;
+    color:var(--ink-muted);
+  }
+
+  .contact-plate a.mail{
+    color:var(--brass-bright);
+    text-decoration:none;
+    border-bottom:1px solid var(--line-strong);
+  }
+
+  .contact-plate a.mail:hover{
+    border-color:var(--brass-bright);
+  }
+
+  /* ---------- CONTACT RESPONSIVE ---------- */
+
+  @media (max-width:860px){
+
+    .contact-view.active{
+      grid-template-columns:1fr;
+      gap:42px;
+    }
+
+    .contact-selector{
+      display:flex;
+      width:100%;
+    }
+
+    .contact-path-btn{
+      flex:1;
+      text-align:center;
+    }
+  }
+
+  @media (max-width:620px){
+
+    .contact-selector{
+      margin-bottom:32px;
+    }
+
+    .contact-path-btn{
+      padding:9px 10px;
+      font-size:10.5px;
+    }
+  }
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -565,8 +768,8 @@
       <a href="#technology">Technology</a>
       <a href="#applications">Applications</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn header-btn">Request a Technical Briefing</a>
+      <a href="?contact=general#contact" onclick="return openContactView('general', true);">Contact</a>
+      <a href="?contact=briefing#contact" class="btn header-btn" onclick="return openContactView('briefing', true);">Request a Technical Briefing</a>
     </nav>
   </div>
 </header>
@@ -598,8 +801,8 @@
       </div>
 
       <div class="hero-ctas">
-        <a href="#contact" class="btn primary">Request a Technical Briefing</a>
-        <button type="button" class="btn" onclick="openDemoVideo()">Watch Concept Demo</button>
+        <a href="?contact=briefing#contact" class="btn primary" onclick="return openContactView('briefing', true);">Request a Technical Briefing</a>
+        <button type="button" class="btn" onclick="openDemoVideo()">Watch Concept Demo Video</button>
       </div>
     </div>
   </section>
@@ -803,221 +1006,532 @@
     </div>
   </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
 
-    <span class="label">CONTACT</span>
+  <!-- =========================================================
+       CONTACT
+       One Contact page with two selectable inquiry paths
+       ========================================================= -->
 
-    <h2 style="margin-top:10px;">
-      Let's Start a Conversation.
-    </h2>
+  <section id="contact">
 
-    <p class="lede" style="max-width:700px;">
-      Whether you have a general inquiry or would like to learn more about our technology and development program, choose the path below that best matches your interest.
-    </p>
+    <div class="wrap">
 
-    <div class="contact-grid">
+      <div class="contact-intro">
 
-      <!-- GENERAL INQUIRY -->
-      <div class="contact-card" id="general-inquiry">
+        <span class="label">CONTACT</span>
 
-        <span class="label">GENERAL INQUIRY</span>
+        <h2>Talk to the team</h2>
 
-        <h3>General Inquiry</h3>
-
-        <p class="lede">
-          For general questions, partnerships, media inquiries, academic or research discussions, and other non-technical matters.
+        <p>
+          Choose the path that best matches your inquiry.
+          General questions can be sent directly. Technical discussions
+          use a separate briefing request so we can better understand
+          your organization, interests, and potential application.
         </p>
 
-        <form action="https://api.web3forms.com/submit" method="POST">
-
-          <!-- Keep your existing Web3Forms access key -->
-          <input type="hidden" name="access_key" value="54088447-50f1-4dab-9563-b19aeacb2dc5">
-
-          <input type="hidden" name="subject" value="General Inquiry — ProtonX Power LLC">
-
-          <input type="hidden" name="form_type" value="General Inquiry">
-
-          <label for="general-name">Name</label>
-          <input
-            type="text"
-            id="general-name"
-            name="name"
-            placeholder="Your name"
-            required
-          >
-
-          <label for="general-email">Email</label>
-          <input
-            type="email"
-            id="general-email"
-            name="email"
-            placeholder="Your email"
-            required
-          >
-
-          <label for="general-organization">Organization</label>
-          <input
-            type="text"
-            id="general-organization"
-            name="organization"
-            placeholder="Organization"
-          >
-
-          <label for="general-message">Message</label>
-          <textarea
-            id="general-message"
-            name="message"
-            rows="5"
-            placeholder="How can we help?"
-            required
-          ></textarea>
-
-          <button type="submit" class="btn btn-outline">
-            Send General Inquiry
-          </button>
-
-        </form>
       </div>
 
 
-      <!-- TECHNICAL BRIEFING -->
-      <div class="contact-card" id="technical-briefing">
+      <!-- CONTACT PATH SELECTOR -->
 
-        <span class="label">TECHNICAL BRIEFING</span>
+      <div class="contact-selector"
+           role="tablist"
+           aria-label="Contact type">
 
-        <h3>Request a Technical Briefing</h3>
+        <button
+          type="button"
+          class="contact-path-btn active"
+          id="contact-tab-general"
+          role="tab"
+          aria-selected="true"
+          aria-controls="general-view"
+          onclick="openContactView('general', true)">
 
-        <p class="lede">
-          For organizations and qualified individuals interested in learning more about our technology, development approach, integration opportunities, or potential program applications.
-        </p>
+          General Inquiry
 
-        <form action="https://api.web3forms.com/submit" method="POST">
+        </button>
 
-          <!-- Keep your existing Web3Forms access key -->
-          <input type="hidden" name="access_key" value="54088447-50f1-4dab-9563-b19aeacb2dc5">
+        <button
+          type="button"
+          class="contact-path-btn"
+          id="contact-tab-briefing"
+          role="tab"
+          aria-selected="false"
+          aria-controls="briefing-view"
+          onclick="openContactView('briefing', true)">
 
-          <input type="hidden" name="subject" value="Technical Briefing Request — ProtonX Power LLC">
+          Request a Technical Briefing
 
-          <input type="hidden" name="form_type" value="Technical Briefing">
+        </button>
 
-          <label for="briefing-name">Name</label>
-          <input
-            type="text"
-            id="briefing-name"
-            name="name"
-            placeholder="Your name"
-            required
-          >
+      </div>
 
-          <label for="briefing-title">Role / Title</label>
-          <input
-            type="text"
-            id="briefing-title"
-            name="role"
-            placeholder="Role / Title"
-          >
 
-          <label for="briefing-organization">Organization</label>
-          <input
-            type="text"
-            id="briefing-organization"
-            name="organization"
-            placeholder="Organization"
-            required
-          >
+      <!-- =====================================================
+           GENERAL INQUIRY
+           ===================================================== -->
 
-          <label for="briefing-email">Business Email</label>
-          <input
-            type="email"
-            id="briefing-email"
-            name="email"
-            placeholder="Business email"
-            required
-          >
+      <div
+        class="contact-view active"
+        id="general-view"
+        role="tabpanel"
+        aria-labelledby="contact-tab-general">
 
-          <label for="briefing-type">Organization Type</label>
-          <select
-            id="briefing-type"
-            name="organization_type"
-            required
-          >
-            <option value="" disabled selected>
-              Select organization type
-            </option>
-            <option value="U.S. Government / Defense">
-              U.S. Government / Defense
-            </option>
-            <option value="Defense Prime / Industry">
-              Defense Prime / Industry
-            </option>
-            <option value="Technology Partner">
-              Technology Partner
-            </option>
-            <option value="Investor">
-              Investor
-            </option>
-            <option value="Research Institution">
-              Research Institution
-            </option>
-            <option value="Other">
-              Other
-            </option>
-          </select>
+        <div class="contact-copy">
 
-          <label for="briefing-interest">Area of Interest</label>
-          <select
-            id="briefing-interest"
-            name="area_of_interest"
-            required
-          >
-            <option value="" disabled selected>
-              Select area of interest
-            </option>
-            <option value="Mission Power">
-              Mission Power
-            </option>
-            <option value="Technology Development">
-              Technology Development
-            </option>
-            <option value="System Integration">
-              System Integration
-            </option>
-            <option value="Program Opportunity">
-              Program Opportunity
-            </option>
-            <option value="Investment">
-              Investment
-            </option>
-            <option value="Other">
-              Other
-            </option>
-          </select>
+          <div class="eyebrow">GENERAL INQUIRY</div>
 
-          <label for="briefing-message">
-            What would you like to discuss?
-          </label>
+          <h3>General Inquiry</h3>
 
-          <textarea
-            id="briefing-message"
-            name="message"
-            rows="5"
-            placeholder="Briefly describe your interest or the opportunity you would like to discuss."
-            required
-          ></textarea>
+          <p>
+            For general questions, partnerships, media inquiries,
+            academic or research discussions, and other non-technical matters.
+          </p>
 
-          <button type="submit" class="btn btn-primary">
+
+          <form
+            class="inquiry"
+            action="https://api.web3forms.com/submit"
+            method="POST">
+
+            <input
+              type="hidden"
+              name="access_key"
+              value="54088447-50f1-4dab-9563-b19aeacb2dc5">
+
+            <input
+              type="hidden"
+              name="subject"
+              value="General Inquiry — ProtonX Power LLC">
+
+            <input
+              type="hidden"
+              name="form_type"
+              value="General Inquiry">
+
+
+            <div class="field">
+
+              <label for="general-name">Name</label>
+
+              <input
+                type="text"
+                id="general-name"
+                name="name"
+                placeholder="Your name"
+                required>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="general-email">Email</label>
+
+              <input
+                type="email"
+                id="general-email"
+                name="email"
+                placeholder="Your email"
+                required>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="general-organization">
+                Organization
+              </label>
+
+              <input
+                type="text"
+                id="general-organization"
+                name="organization"
+                placeholder="Organization">
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="general-message">Message</label>
+
+              <textarea
+                id="general-message"
+                name="message"
+                rows="5"
+                placeholder="How can we help?"
+                required></textarea>
+
+            </div>
+
+
+            <button type="submit" class="btn">
+              Send General Inquiry
+            </button>
+
+            <p class="form-note">
+              For general, non-technical inquiries.
+            </p>
+
+          </form>
+
+        </div>
+
+
+        <aside class="contact-plate">
+
+          <div class="plate-label">
+            GENERAL INQUIRY
+          </div>
+
+          <h4>For general communication</h4>
+
+
+          <div class="row">
+
+            <div class="k">EMAIL</div>
+
+            <div class="v">
+
+              <a
+                class="mail"
+                href="mailto:contact@pxp-usa.com">
+
+                contact@pxp-usa.com
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="k">LOCATION</div>
+
+            <div class="v">
+              Illinois, USA
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="k">USE THIS PATH FOR</div>
+
+            <div class="v">
+              General questions, partnerships, media,
+              academic or research discussions.
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+
+      <!-- =====================================================
+           TECHNICAL BRIEFING
+           ===================================================== -->
+
+      <div
+        class="contact-view"
+        id="briefing-view"
+        role="tabpanel"
+        aria-labelledby="contact-tab-briefing">
+
+        <div class="contact-copy">
+
+          <div class="eyebrow">
+            TECHNICAL BRIEFING
+          </div>
+
+          <h3>
             Request a Technical Briefing
-          </button>
+          </h3>
 
-        </form>
+          <p>
+            For organizations and qualified individuals interested in
+            learning more about our technology, development approach,
+            integration opportunities, or potential program applications.
+          </p>
+
+
+          <form
+            class="inquiry"
+            action="https://api.web3forms.com/submit"
+            method="POST">
+
+            <input
+              type="hidden"
+              name="access_key"
+              value="54088447-50f1-4dab-9563-b19aeacb2dc5">
+
+            <input
+              type="hidden"
+              name="subject"
+              value="Technical Briefing Request — ProtonX Power LLC">
+
+            <input
+              type="hidden"
+              name="form_type"
+              value="Technical Briefing">
+
+
+            <div class="field">
+
+              <label for="briefing-name">Name</label>
+
+              <input
+                type="text"
+                id="briefing-name"
+                name="name"
+                placeholder="Your name"
+                required>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-title">
+                Role / Title
+              </label>
+
+              <input
+                type="text"
+                id="briefing-title"
+                name="role"
+                placeholder="Role / Title">
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-organization">
+                Organization
+              </label>
+
+              <input
+                type="text"
+                id="briefing-organization"
+                name="organization"
+                placeholder="Organization"
+                required>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-email">
+                Business Email
+              </label>
+
+              <input
+                type="email"
+                id="briefing-email"
+                name="email"
+                placeholder="Business email"
+                required>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-type">
+                Organization Type
+              </label>
+
+              <select
+                id="briefing-type"
+                name="organization_type"
+                required>
+
+                <option
+                  value=""
+                  disabled
+                  selected>
+                  Select organization type
+                </option>
+
+                <option value="U.S. Government / Defense">
+                  U.S. Government / Defense
+                </option>
+
+                <option value="Defense Prime / Industry">
+                  Defense Prime / Industry
+                </option>
+
+                <option value="Technology Partner">
+                  Technology Partner
+                </option>
+
+                <option value="Investor">
+                  Investor
+                </option>
+
+                <option value="Research Institution">
+                  Research Institution
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-interest">
+                Area of Interest
+              </label>
+
+              <select
+                id="briefing-interest"
+                name="area_of_interest"
+                required>
+
+                <option
+                  value=""
+                  disabled
+                  selected>
+                  Select area of interest
+                </option>
+
+                <option value="Mission Power">
+                  Mission Power
+                </option>
+
+                <option value="Technology Development">
+                  Technology Development
+                </option>
+
+                <option value="System Integration">
+                  System Integration
+                </option>
+
+                <option value="Program Opportunity">
+                  Program Opportunity
+                </option>
+
+                <option value="Investment">
+                  Investment
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="briefing-message">
+                What would you like to discuss?
+              </label>
+
+              <textarea
+                id="briefing-message"
+                name="message"
+                rows="5"
+                placeholder="Briefly describe your interest or the opportunity you would like to discuss."
+                required></textarea>
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn primary">
+
+              Request a Technical Briefing
+
+            </button>
+
+            <p class="form-note">
+              Technical information is shared selectively following an initial inquiry.
+            </p>
+
+          </form>
+
+        </div>
+
+
+        <aside class="contact-plate">
+
+          <div class="plate-label">
+            TECHNICAL BRIEFING
+          </div>
+
+          <h4>
+            For qualified technical discussions
+          </h4>
+
+
+          <div class="row">
+
+            <div class="k">EMAIL</div>
+
+            <div class="v">
+
+              <a
+                class="mail"
+                href="mailto:contact@pxp-usa.com">
+
+                contact@pxp-usa.com
+
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="k">USE THIS PATH FOR</div>
+
+            <div class="v">
+              Technology, development programs,
+              system integration, defense applications,
+              partnerships, or investment discussions.
+            </div>
+
+          </div>
+
+
+          <div class="row">
+
+            <div class="k">NEXT STEP</div>
+
+            <div class="v">
+              Tell us who you are, what you are interested in,
+              and what you would like to discuss.
+            </div>
+
+          </div>
+
+        </aside>
+
       </div>
 
     </div>
-  </div>
-</section>
 
+  </section>
 </main>
 
 <footer>
@@ -1044,6 +1558,194 @@
       heroImg.src = 'hero-fig02.png'; // 민간용 히어로 이미지
     }
   }
+
+
+  /* =========================================================
+     CONTACT VIEW ROUTING
+     =========================================================
+
+     Contact
+        -> General Inquiry
+
+     Request a Technical Briefing
+        -> Technical Briefing
+
+     Both remain on the same #contact section.
+     ========================================================= */
+
+  function openContactView(view, shouldScroll, updateURL) {
+
+    /* updateURL is false during normal page-load initialization. */
+    if (typeof updateURL === 'undefined') updateURL = true;
+
+    var generalView =
+      document.getElementById('general-view');
+
+    var briefingView =
+      document.getElementById('briefing-view');
+
+    var generalTab =
+      document.getElementById('contact-tab-general');
+
+    var briefingTab =
+      document.getElementById('contact-tab-briefing');
+
+
+    if (view === 'briefing') {
+
+      generalView.classList.remove('active');
+      briefingView.classList.add('active');
+
+      generalTab.classList.remove('active');
+      briefingTab.classList.add('active');
+
+      generalTab.setAttribute(
+        'aria-selected',
+        'false'
+      );
+
+      briefingTab.setAttribute(
+        'aria-selected',
+        'true'
+      );
+
+    } else {
+
+      briefingView.classList.remove('active');
+      generalView.classList.add('active');
+
+      briefingTab.classList.remove('active');
+      generalTab.classList.add('active');
+
+      briefingTab.setAttribute(
+        'aria-selected',
+        'false'
+      );
+
+      generalTab.setAttribute(
+        'aria-selected',
+        'true'
+      );
+
+      view = 'general';
+
+    }
+
+
+    /* Update the URL so each path can be opened directly.
+       Example:
+       ?contact=general#contact
+       ?contact=briefing#contact
+    */
+
+    if (updateURL) {
+      var newURL =
+        window.location.pathname +
+        '?contact=' +
+        encodeURIComponent(view) +
+        '#contact';
+
+      history.replaceState(
+        null,
+        '',
+        newURL
+      );
+    }
+
+
+    /* Scroll only when the user clicked a contact link/button. */
+
+    if (shouldScroll) {
+
+      setTimeout(function(){
+
+        document
+          .getElementById('contact')
+          .scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+          });
+
+      },20);
+
+    }
+
+    /* Returning false prevents the header link's default navigation. */
+    return false;
+
+  }
+
+
+  /* =========================================================
+     READ CONTACT VIEW FROM URL
+     ========================================================= */
+
+  function initializeContactViewFromURL(){
+
+    var params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+    var requestedView =
+      params.get('contact');
+
+
+    if (requestedView === 'briefing'){
+
+      openContactView(
+        'briefing',
+        false,
+        false
+      );
+
+    } else if (requestedView === 'general') {
+
+      openContactView(
+        'general',
+        false,
+        false
+      );
+
+    } else {
+
+      /* Normal first load: stay at the Home position.
+         General Inquiry is the default contact view,
+         but do not add #contact to the URL. */
+      openContactView(
+        'general',
+        false,
+        false
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     INITIALIZE
+     ========================================================= */
+
+  document.addEventListener(
+    'DOMContentLoaded',
+    initializeContactViewFromURL
+  );
+
+
+  /* =========================================================
+     BROWSER BACK / FORWARD
+     ========================================================= */
+
+  window.addEventListener(
+    'popstate',
+    function(){
+
+      initializeContactViewFromURL();
+
+    }
+  );
+
 
   function openDemoVideo(){
     var videoFile = "concept-demo.mp4";
