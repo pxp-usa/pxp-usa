@@ -803,59 +803,220 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" style="background:var(--bg-alt); border-top:1px solid var(--line);">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="label">CONTACT</span>
-          <h2>Talk to the team</h2>
-        </div>
-        <span class="index">INQUIRIES</span>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
 
-      <div class="contact-grid">
-        <form class="inquiry" action="https://api.web3forms.com/submit" method="POST">
+    <span class="label">CONTACT</span>
+
+    <h2 style="margin-top:10px;">
+      Let's Start a Conversation.
+    </h2>
+
+    <p class="lede" style="max-width:700px;">
+      Whether you have a general inquiry or would like to learn more about our technology and development program, choose the path below that best matches your interest.
+    </p>
+
+    <div class="contact-grid">
+
+      <!-- GENERAL INQUIRY -->
+      <div class="contact-card" id="general-inquiry">
+
+        <span class="label">GENERAL INQUIRY</span>
+
+        <h3>General Inquiry</h3>
+
+        <p class="lede">
+          For general questions, partnerships, media inquiries, academic or research discussions, and other non-technical matters.
+        </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+          <!-- Keep your existing Web3Forms access key -->
           <input type="hidden" name="access_key" value="54088447-50f1-4dab-9563-b19aeacb2dc5">
-          <input type="hidden" name="subject" value="New Contact Inquiry - ProtonX Power">
-          <div class="field">
-            <label for="f-name">Name</label>
-            <input id="f-name" name="name" type="text" placeholder="Your full name" required>
-          </div>
-          <div class="field">
-            <label for="f-org">Organization / Agency</label>
-            <input id="f-org" name="organization" type="text" placeholder="Company, agency, or unit">
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" placeholder="you@organization.com" required>
-          </div>
-          <div class="field">
-            <label for="f-msg">Message</label>
-            <textarea id="f-msg" name="message" placeholder="Tell us about your application or project requirement"></textarea>
-          </div>
-          <button type="submit" class="btn primary">Send inquiry</button>
-          <p class="form-note">We respond to qualified inquiries within two business days.</p>
-        </form>
 
-        <div class="contact-plate">
-          <div class="row">
-            <div class="k">EMAIL</div>
-            <div class="v"><a class="mail" href="mailto:contact@pxp-usa.com">contact@pxp-usa.com</a></div>
-          </div>
-          <div class="row">
-            <div class="k">LOCATION</div>
-            <div class="v">Illinois, USA</div>
-          </div>
-          <div class="row">
-            <div class="k">FOR</div>
-            <div class="v defense-content">Defense, government &amp; off-grid energy partners</div>
-            <div class="v commercial-content">Commercial, disaster-relief &amp; industrial energy partners</div>
-          </div>
-        </div>
+          <input type="hidden" name="subject" value="General Inquiry — ProtonX Power LLC">
+
+          <input type="hidden" name="form_type" value="General Inquiry">
+
+          <label for="general-name">Name</label>
+          <input
+            type="text"
+            id="general-name"
+            name="name"
+            placeholder="Your name"
+            required
+          >
+
+          <label for="general-email">Email</label>
+          <input
+            type="email"
+            id="general-email"
+            name="email"
+            placeholder="Your email"
+            required
+          >
+
+          <label for="general-organization">Organization</label>
+          <input
+            type="text"
+            id="general-organization"
+            name="organization"
+            placeholder="Organization"
+          >
+
+          <label for="general-message">Message</label>
+          <textarea
+            id="general-message"
+            name="message"
+            rows="5"
+            placeholder="How can we help?"
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-outline">
+            Send General Inquiry
+          </button>
+
+        </form>
       </div>
+
+
+      <!-- TECHNICAL BRIEFING -->
+      <div class="contact-card" id="technical-briefing">
+
+        <span class="label">TECHNICAL BRIEFING</span>
+
+        <h3>Request a Technical Briefing</h3>
+
+        <p class="lede">
+          For organizations and qualified individuals interested in learning more about our technology, development approach, integration opportunities, or potential program applications.
+        </p>
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+          <!-- Keep your existing Web3Forms access key -->
+          <input type="hidden" name="access_key" value="54088447-50f1-4dab-9563-b19aeacb2dc5">
+
+          <input type="hidden" name="subject" value="Technical Briefing Request — ProtonX Power LLC">
+
+          <input type="hidden" name="form_type" value="Technical Briefing">
+
+          <label for="briefing-name">Name</label>
+          <input
+            type="text"
+            id="briefing-name"
+            name="name"
+            placeholder="Your name"
+            required
+          >
+
+          <label for="briefing-title">Role / Title</label>
+          <input
+            type="text"
+            id="briefing-title"
+            name="role"
+            placeholder="Role / Title"
+          >
+
+          <label for="briefing-organization">Organization</label>
+          <input
+            type="text"
+            id="briefing-organization"
+            name="organization"
+            placeholder="Organization"
+            required
+          >
+
+          <label for="briefing-email">Business Email</label>
+          <input
+            type="email"
+            id="briefing-email"
+            name="email"
+            placeholder="Business email"
+            required
+          >
+
+          <label for="briefing-type">Organization Type</label>
+          <select
+            id="briefing-type"
+            name="organization_type"
+            required
+          >
+            <option value="" disabled selected>
+              Select organization type
+            </option>
+            <option value="U.S. Government / Defense">
+              U.S. Government / Defense
+            </option>
+            <option value="Defense Prime / Industry">
+              Defense Prime / Industry
+            </option>
+            <option value="Technology Partner">
+              Technology Partner
+            </option>
+            <option value="Investor">
+              Investor
+            </option>
+            <option value="Research Institution">
+              Research Institution
+            </option>
+            <option value="Other">
+              Other
+            </option>
+          </select>
+
+          <label for="briefing-interest">Area of Interest</label>
+          <select
+            id="briefing-interest"
+            name="area_of_interest"
+            required
+          >
+            <option value="" disabled selected>
+              Select area of interest
+            </option>
+            <option value="Mission Power">
+              Mission Power
+            </option>
+            <option value="Technology Development">
+              Technology Development
+            </option>
+            <option value="System Integration">
+              System Integration
+            </option>
+            <option value="Program Opportunity">
+              Program Opportunity
+            </option>
+            <option value="Investment">
+              Investment
+            </option>
+            <option value="Other">
+              Other
+            </option>
+          </select>
+
+          <label for="briefing-message">
+            What would you like to discuss?
+          </label>
+
+          <textarea
+            id="briefing-message"
+            name="message"
+            rows="5"
+            placeholder="Briefly describe your interest or the opportunity you would like to discuss."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn btn-primary">
+            Request a Technical Briefing
+          </button>
+
+        </form>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
