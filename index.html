@@ -506,20 +506,36 @@
     margin:0;
   }
 
-  .weight-objective{
-    display:grid;
-    grid-template-columns:minmax(280px,.9fr) minmax(420px,1.1fr);
-    gap:72px;
-    padding:56px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .weight-number{
-    font-family:'Oswald',sans-serif;
-    font-size:clamp(48px,6vw,78px);
-    line-height:.9;
-    letter-spacing:-.025em;
-    text-transform:uppercase;
-  }
+.weight-objective{
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:72px;
+  padding:56px 0;
+  border-bottom:1px solid var(--line);
+  min-width:0;
+}
+
+.weight-objective > div{
+  min-width:0;
+}
+
+
+
+
+.weight-number{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(46px,5.2vw,72px);
+  line-height:.9;
+  letter-spacing:-.025em;
+  text-transform:uppercase;
+  min-width:0;
+  max-width:100%;
+  overflow:visible;
+}
+
+
+
+
   .weight-number span{
     display:block;
     color:var(--brass);
@@ -600,7 +616,7 @@
   }
 
   .mission-intro{
-    padding:58px 0 42px;
+    padding:32px 0 36px;
   }
   .mission-intro p{
     max-width:66ch;
@@ -1075,35 +1091,140 @@
         <span class="index">4 CORE PRINCIPLES</span>
       </div>
 
-      <div class="architecture-intro">
-        <div>
-          <span class="architecture-kicker">FIELD-ACTIVATED ENERGY SYSTEM</span>
-          <h3>Generate<br>Power When<br>You Need It.</h3>
-        </div>
+<div class="architecture-intro">
 
-        <div>
-          <p class="lead">ProtonX Power LLC is developing a different approach to mission power: instead of carrying all of the energy as stored electrochemical energy, the mission carries the means to generate power when required.</p>
-          <p>The architecture separates the reusable power-generation module from inactive, dry consumable fuel. Additional mission duration can therefore be supported by additional fuel rather than proportionally increasing the mass of stored battery energy.</p>
-          <p>The objective is a power system that can be activated at the point of use and scaled to mission-specific energy requirements.</p>
-        </div>
-      </div>
+  <div>
+    <span class="architecture-kicker">FIELD-ACTIVATED ENERGY SYSTEM</span>
 
-      <div class="power-class-grid">
-        <div class="power-class">
-          <span class="class-label">TYPE-A: INDIVIDUAL OPERATOR</span>
-          <div class="class-value">110 Wh class</div>
-          <p>STANAG Magazine-Class Form Factor</p>
-          <p>Intended for standard individual mission electronics.</p>
-          <p>Designed for the individual SOF operator, Type-A is a compact power configuration optimized around a STANAG magazine-class load-carriage footprint.</p>
-        </div>
-        <div class="power-class">
-          <span class="class-label">TYPE-B: EXTENDED MISSION</span>
-          <div class="class-value">500 Wh class</div>
-          <p>MOLLE-Compatible Form Factor</p>
-          <p>Intended for power-intensive mission electronics, including long-range SATCOM and unmanned systems.</p>
-          <p>Designed for SOF operators carrying higher-power mission electronics, Type-B provides an expanded power configuration optimized for standard MOLLE-compatible load-carriage spaces.</p>
-        </div>
-      </div>
+    <!-- DEFENSE -->
+    <div class="defense-content">
+      <h3>Generate<br>Power When<br>You Need It.</h3>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+      <h3>Generate<br>Power Where<br>You Need It.</h3>
+    </div>
+  </div>
+
+
+  <div>
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+      <p class="lead">
+        ProtonX Power LLC is developing a different approach to mission power:
+        instead of carrying all of the energy as stored electrochemical energy,
+        the mission carries the means to generate power when required.
+      </p>
+
+      <p>
+        The architecture separates the reusable power-generation module from
+        inactive, dry consumable fuel. Additional mission duration can therefore
+        be supported by additional fuel rather than proportionally increasing
+        the mass of stored battery energy.
+      </p>
+
+      <p>
+        The objective is a power system that can be activated at the point of use
+        and scaled to mission-specific energy requirements.
+      </p>
+    </div>
+
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+      <p class="lead">
+        ProtonX Power LLC is developing a different approach to mobile and
+        off-grid power: instead of carrying all of the energy as stored
+        electrochemical energy, the system carries the means to generate
+        electricity when power is required.
+      </p>
+
+      <p>
+        The architecture separates the reusable power-generation module from
+        inactive, dry consumable fuel. Additional operating duration can
+        therefore be supported by additional fuel rather than proportionally
+        increasing the mass of stored battery energy.
+      </p>
+
+      <p>
+        The objective is a flexible power platform that can be activated at the
+        point of use and scaled to application-specific energy requirements.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="power-class-grid">
+
+  <!-- TYPE-A -->
+  <div class="power-class">
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+      <span class="class-label">TYPE-A: INDIVIDUAL OPERATOR</span>
+      <div class="class-value">110 Wh class</div>
+      <p>STANAG Magazine-Class Form Factor</p>
+      <p>Intended for standard individual mission electronics.</p>
+      <p>
+        Designed for the individual SOF operator, Type-A is a compact power
+        configuration optimized around a STANAG magazine-class load-carriage footprint.
+      </p>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+      <span class="class-label">TYPE-A: PORTABLE POWER</span>
+      <div class="class-value">110 Wh class</div>
+      <p>Compact Portable Form Factor</p>
+      <p>Intended for portable electronics, remote instrumentation, and compact robotic systems.</p>
+      <p>
+        Type-A is a compact power configuration designed for applications where
+        portable equipment must operate beyond conventional charging infrastructure.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- TYPE-B -->
+  <div class="power-class">
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+      <span class="class-label">TYPE-B: EXTENDED MISSION</span>
+      <div class="class-value">500 Wh class</div>
+      <p>MOLLE-Compatible Form Factor</p>
+      <p>
+        Intended for power-intensive mission electronics, including long-range SATCOM and unmanned systems.
+      </p>
+      <p>
+        Designed for SOF operators carrying higher-power mission electronics,
+        Type-B provides an expanded power configuration optimized for standard
+        MOLLE-compatible load-carriage spaces.
+      </p>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+      <span class="class-label">TYPE-B: EXTENDED OPERATION</span>
+      <div class="class-value">500 Wh class</div>
+      <p>Expanded Portable Power Configuration</p>
+      <p>
+        Intended for higher-power mobile equipment, robotics, and remote systems.
+      </p>
+      <p>
+        Type-B provides an expanded power configuration for applications requiring
+        longer operating duration beyond conventional charging infrastructure.
+      </p>
+    </div>
+
+  </div>
+
+</div>
 
       <div class="weight-objective">
         <div>
@@ -1134,7 +1255,7 @@
           <h3>Carry the Means<br>to Generate Energy</h3>
           <div class="energy-flow">
             <span class="node">MODULE</span><span class="arrow">+</span>
-            <span class="node">DRY SOLID FUEL CONSUMABLE</span><span class="arrow">→</span>
+            <span class="node">DRY SOLID FUEL POUCH</span><span class="arrow">→</span>
             <span class="node">ACTIVATE</span><span class="arrow">→</span>
             <span class="node">GENERATE</span>
           </div>
@@ -1152,73 +1273,295 @@
   <!-- MISSION CONCEPT -->
   <section id="applications" style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
     <div class="wrap">
-      <div class="section-head" style="border-bottom:none; margin-bottom:0;">
-        <div>
-          <span class="label">MISSION CONCEPT</span>
-          <h2>Power Longer. Carry Less.</h2>
-        </div>
-        <span class="index">4 STAGES</span>
+
+<div class="section-head" style="border-bottom:none; margin-bottom:0;">
+  <div>
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+      <span class="label">MISSION CONCEPT</span>
+      <h2>Power Longer. Carry Less.</h2>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+      <span class="label">OPERATING CONCEPT</span>
+      <h2>Power Longer. Depend Less.</h2>
+    </div>
+
+  </div>
+
+  <span class="index">4 STAGES</span>
+</div>
+
+<div class="mission-intro">
+
+  <!-- DEFENSE -->
+  <div class="defense-content">
+    <p>
+      The ProtonX System concept is built around a simple change in mission
+      energy logistics: carry the reusable power-generation module and inactive
+      fuel, then activate and generate electricity when power is required.
+    </p>
+  </div>
+
+  <!-- COMMERCIAL -->
+  <div class="commercial-content">
+    <p>
+      The ProtonX System concept is built around a simple change in how
+      off-grid power is supplied: carry the reusable power-generation module
+      and inactive fuel, then activate and generate electricity when power is required.
+    </p>
+  </div>
+
+</div>
+
+
+<div class="mission-step-grid">
+<div class="mission-step">
+
+  <span class="step-number">01 / CARRY</span>
+
+  <!-- DEFENSE -->
+  <div class="defense-content">
+    <h3>Carry</h3>
+    <span class="step-title">Reusable Module + Dry Solid Fuel Consumable</span>
+    <p>
+      The mission carries a reusable power-generation module together with
+      lightweight, inactive dry consumable fuel.
+    </p>
+  </div>
+
+  <!-- COMMERCIAL -->
+  <div class="commercial-content">
+    <h3>Carry</h3>
+    <span class="step-title">Reusable Module + Dry Solid Fuel</span>
+    <p>
+      The system carries a reusable power-generation module together with
+      lightweight, inactive dry consumable fuel.
+    </p>
+  </div>
+
+</div>
+
+<div class="mission-step">
+
+  <span class="step-number">02 / ACTIVATE</span>
+
+  <!-- DEFENSE -->
+  <div class="defense-content">
+    <h3>Activate</h3>
+    <span class="step-title">At the Point of Use</span>
+    <p>
+      Field activation using locally available aqueous fluids, where appropriate.
+      The activation approach is intended to reduce dependence on dedicated
+      pre-positioned activation resources.
+    </p>
+  </div>
+
+  <!-- COMMERCIAL -->
+  <div class="commercial-content">
+    <h3>Activate</h3>
+    <span class="step-title">At the Point of Use</span>
+    <p>
+      Field activation using locally available aqueous fluids, where appropriate.
+      The activation approach is intended to reduce dependence on dedicated
+      activation resources.
+    </p>
+  </div>
+
+</div>
+
+<div class="mission-step">
+
+  <span class="step-number">03 / GENERATE</span>
+
+  <!-- DEFENSE -->
+  <div class="defense-content">
+    <h3>Generate</h3>
+    <span class="step-title">Power On Demand</span>
+    <p>
+      The activated system generates electricity for the connected mission load.
+      Additional endurance can be supported by additional inactive consumable fuel.
+    </p>
+  </div>
+
+  <!-- COMMERCIAL -->
+  <div class="commercial-content">
+    <h3>Generate</h3>
+    <span class="step-title">Power On Demand</span>
+    <p>
+      The activated system generates electricity for the connected equipment.
+      Additional operating duration can be supported by additional inactive
+      consumable fuel.
+    </p>
+  </div>
+
+</div>
+
+<div class="mission-step">
+
+  <span class="step-number">04 / RETURN</span>
+
+  <!-- DEFENSE -->
+  <div class="defense-content">
+    <h3>Return</h3>
+    <span class="step-title">Minimize Reverse Logistics</span>
+    <p>
+      Spent consumable material is designed to avoid the return logistics
+      associated with discharged battery banks, subject to applicable handling
+      and environmental requirements.
+    </p>
+  </div>
+
+  <!-- COMMERCIAL -->
+  <div class="commercial-content">
+    <h3>Return</h3>
+    <span class="step-title">Reduce Return Logistics</span>
+    <p>
+      Spent consumable material is designed to reduce the need to return heavy
+      discharged battery systems, subject to applicable handling and environmental
+      requirements.
+    </p>
+  </div>
+
+  </div>
+
+
+</div>
+
+
+<div class="energy-model">
+
+  <!-- LEFT PANEL -->
+  <div class="energy-model-panel">
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+
+      <span class="model-tag">BATTERY-BASED MISSION</span>
+
+      <h3>
+        More Mission Time<br>
+        Means More Stored Energy
+      </h3>
+
+      <div class="energy-flow">
+        <span class="node">CARRY</span>
+        <span class="arrow">→</span>
+        <span class="node">CONSUME</span>
+        <span class="arrow">→</span>
+        <span class="node">REPLACE</span>
+        <span class="arrow">→</span>
+        <span class="node">RECHARGE</span>
       </div>
 
-      <div class="mission-intro">
-        <p>The ProtonX System concept is built around a simple change in mission energy logistics: carry the reusable power-generation module and inactive fuel, then activate and generate electricity when power is required.</p>
+      <p>
+        Extending a mission can require additional battery capacity to be
+        carried from the beginning, increasing the amount of energy-storage
+        mass and creating additional charging and resupply requirements.
+      </p>
+
+    </div>
+
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+
+      <span class="model-tag">BATTERY-BASED OPERATION</span>
+
+      <h3>
+        Longer Operation<br>
+        Means More Stored Energy
+      </h3>
+
+      <div class="energy-flow">
+        <span class="node">CARRY</span>
+        <span class="arrow">→</span>
+        <span class="node">CONSUME</span>
+        <span class="arrow">→</span>
+        <span class="node">REPLACE</span>
+        <span class="arrow">→</span>
+        <span class="node">RECHARGE</span>
       </div>
 
-      <div class="mission-step-grid">
-        <div class="mission-step">
-          <span class="step-number">01 / CARRY</span>
-          <h3>Carry</h3>
-          <span class="step-title">Reusable Module + Dry Solid Fuel Consumable</span>
-          <p>The mission carries a reusable power-generation module together with lightweight, inactive dry consumable fuel.</p>
-        </div>
+      <p>
+        Extending operating duration can require additional battery capacity,
+        increasing stored-energy mass and dependence on available charging
+        infrastructure.
+      </p>
 
-        <div class="mission-step">
-          <span class="step-number">02 / ACTIVATE</span>
-          <h3>Activate</h3>
-          <span class="step-title">At the Point of Use</span>
-          <p>Field activation using locally available aqueous fluids, where appropriate. The activation approach is intended to reduce dependence on dedicated pre-positioned activation resources.</p>
-        </div>
+    </div>
 
-        <div class="mission-step">
-          <span class="step-number">03 / GENERATE</span>
-          <h3>Generate</h3>
-          <span class="step-title">Power On Demand</span>
-          <p>The activated system generates electricity for the connected mission load. Additional endurance can be supported by additional inactive consumable fuel.</p>
-        </div>
+  </div>
 
-        <div class="mission-step">
-          <span class="step-number">04 / RETURN</span>
-          <h3>Return</h3>
-          <span class="step-title">Minimize Reverse Logistics</span>
-          <p>Spent consumable material is designed to avoid the return logistics associated with discharged battery banks, subject to applicable handling and environmental requirements.</p>
-        </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="energy-model-panel">
+
+    <!-- DEFENSE -->
+    <div class="defense-content">
+
+      <span class="model-tag">PROTONX SYSTEM MISSION CONCEPT</span>
+
+      <h3>
+        More Mission Time<br>
+        Can Mean More Fuel
+      </h3>
+
+      <div class="energy-flow">
+        <span class="node">CARRY</span>
+        <span class="arrow">→</span>
+        <span class="node">ACTIVATE</span>
+        <span class="arrow">→</span>
+        <span class="node">GENERATE</span>
+        <span class="arrow">→</span>
+        <span class="node">REPEAT</span>
       </div>
 
-      <div class="energy-model">
-        <div class="energy-model-panel">
-          <span class="model-tag">BATTERY-BASED MISSION</span>
-          <h3>More Mission Time<br>Means More Stored Energy</h3>
-          <div class="energy-flow">
-            <span class="node">CARRY</span><span class="arrow">→</span>
-            <span class="node">CONSUME</span><span class="arrow">→</span>
-            <span class="node">REPLACE</span><span class="arrow">→</span>
-            <span class="node">RECHARGE</span>
-          </div>
-          <p>Extending a mission can require additional battery capacity to be carried from the beginning, increasing the amount of energy-storage mass and creating additional charging and resupply requirements.</p>
-        </div>
+      <p>
+        Carry the reusable generation module once, then add inactive dry
+        solid fuel as mission duration requires. Spent consumable material
+        is designed to avoid the return logistics associated with discharged
+        battery banks, subject to applicable handling and environmental
+        requirements.
+      </p>
 
-        <div class="energy-model-panel">
-          <span class="model-tag">PROTONX SYSTEM MISSION CONCEPT</span>
-          <h3>More Mission Time<br>Can Mean More Fuel</h3>
-          <div class="energy-flow">
-            <span class="node">CARRY</span><span class="arrow">→</span>
-            <span class="node">ACTIVATE</span><span class="arrow">→</span>
-            <span class="node">GENERATE</span><span class="arrow">→</span>
-            <span class="node">REPEAT</span>
-          </div>
-          <p>Carry the reusable generation module once, then add inactive dry solid fuel as mission duration requires. Spent consumable material is designed to avoid the return logistics associated with discharged battery banks, subject to applicable handling and environmental requirements.</p>
-        </div>
+    </div>
+
+
+    <!-- COMMERCIAL -->
+    <div class="commercial-content">
+
+      <span class="model-tag">PROTONX SYSTEM OPERATING CONCEPT</span>
+
+      <h3>
+        Longer Operation<br>
+        Can Mean More Fuel
+      </h3>
+
+      <div class="energy-flow">
+        <span class="node">CARRY</span>
+        <span class="arrow">→</span>
+        <span class="node">ACTIVATE</span>
+        <span class="arrow">→</span>
+        <span class="node">GENERATE</span>
+        <span class="arrow">→</span>
+        <span class="node">REPEAT</span>
       </div>
+
+      <p>
+        Carry the reusable generation module once, then add inactive dry
+        solid fuel as operating duration requires. Spent consumable material
+        is designed to reduce the need to return heavy discharged battery
+        systems, subject to applicable handling and environmental requirements.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
       <div class="mission-principle">
         <span class="eyebrow">THE PROTONX SYSTEM CONCEPT</span>
@@ -1226,6 +1569,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- VIDEO DEMO -->
   <section id="demo" style="padding-top:0;">
