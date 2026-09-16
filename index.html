@@ -750,6 +750,342 @@
     section{padding:80px 0;}
     .hero-content{padding-bottom:64px;}
   }
+
+/* =========================================================
+   PXP-USA — POWER ARCHITECTURE / MISSION CONCEPT
+   ========================================================= */
+
+.architecture-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(420px, 1.2fr);
+  gap: 72px;
+  padding: 64px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.architecture-kicker {
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.architecture-intro h3 {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: .98;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -.015em;
+}
+
+.architecture-intro p {
+  margin: 0 0 16px;
+  max-width: 62ch;
+  color: var(--ink-muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.architecture-intro .lead {
+  color: var(--ink);
+  font-size: 19px;
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+
+/* POWER CLASS CARDS */
+
+.power-class-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+
+.power-class {
+  padding: 42px 40px 44px;
+  border-right: 1px solid var(--line);
+}
+
+.power-class:last-child {
+  border-right: none;
+}
+
+.power-class .class-label {
+  display: block;
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  margin-bottom: 18px;
+}
+
+.power-class .class-value {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: .95;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+
+.power-class p {
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 42ch;
+}
+
+
+/* WEIGHT OBJECTIVE */
+
+.weight-objective {
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(420px, 1.1fr);
+  gap: 72px;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.weight-number {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: .9;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+.weight-number span {
+  display: block;
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: .14em;
+  margin-top: 18px;
+}
+
+.weight-objective p {
+  color: var(--ink-muted);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 58ch;
+  margin: 0 0 14px;
+}
+
+.architecture-footnote {
+  color: var(--ink-dim);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  line-height: 1.55;
+  letter-spacing: .02em;
+  margin-top: 18px;
+}
+
+
+/* CONVENTIONAL VS PXP */
+
+.energy-model {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+
+.energy-model-panel {
+  padding: 44px 40px 48px;
+  border-right: 1px solid var(--line);
+}
+
+.energy-model-panel:last-child {
+  border-right: none;
+}
+
+.energy-model-panel .model-tag {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  color: var(--ink-dim);
+  margin-bottom: 13px;
+}
+
+.energy-model-panel h3 {
+  margin: 0 0 24px;
+  font-family: "Oswald", sans-serif;
+  font-size: 25px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.energy-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.energy-flow .node {
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.energy-flow .arrow {
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 14px;
+}
+
+.energy-model-panel p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* MISSION CONCEPT */
+
+.mission-intro {
+  padding: 58px 0 42px;
+}
+
+.mission-intro p {
+  max-width: 66ch;
+  color: var(--ink-muted);
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.mission-step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.mission-step {
+  min-height: 250px;
+  padding: 34px 32px 38px;
+  border-right: 1px solid var(--line);
+}
+
+.mission-step:last-child {
+  border-right: none;
+}
+
+.mission-step .step-number {
+  display: block;
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  margin-bottom: 40px;
+}
+
+.mission-step h3 {
+  margin: 0 0 12px;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.mission-step .step-title {
+  display: block;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.mission-step p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 34ch;
+}
+
+.mission-principle {
+  padding: 52px 0 8px;
+  text-align: center;
+}
+
+.mission-principle .eyebrow {
+  display: block;
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: .14em;
+  margin-bottom: 16px;
+}
+
+.mission-principle h3 {
+  margin: 0 auto;
+  max-width: 900px;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: .98;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 820px) {
+  .architecture-intro,
+  .weight-objective {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .power-class-grid,
+  .energy-model,
+  .mission-step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .power-class,
+  .energy-model-panel,
+  .mission-step {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .power-class:last-child,
+  .energy-model-panel:last-child,
+  .mission-step:last-child {
+    border-bottom: none;
+  }
+
+  .architecture-intro {
+    padding: 48px 0;
+  }
+
+  .mission-step {
+    min-height: auto;
+  }
+
+  .mission-step .step-number {
+    margin-bottom: 24px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -808,139 +1144,496 @@
   </section>
 
   <!-- TECHNOLOGY -->
-  <section id="technology">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="label">TECHNOLOGY</span>
-          <h2>Core Capabilities &amp; Specifications</h2>
-        </div>
-        <span class="index">4 SPECIFICATIONS</span>
+<!-- =========================================================
+     POWER ARCHITECTURE
+     ========================================================= -->
+<section id="technology">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div>
+        <span class="label">POWER ARCHITECTURE</span>
+        <h2>Carry the Means. Not the Energy.</h2>
+      </div>
+      <span class="index">01 / ARCHITECTURE</span>
+    </div>
+
+
+    <!-- INTRO -->
+    <div class="architecture-intro">
+
+      <div>
+        <span class="architecture-kicker">
+          FIELD-ACTIVATED ENERGY SYSTEM
+        </span>
+
+        <h3>
+          Generate<br>
+          Power When<br>
+          You Need It.
+        </h3>
       </div>
 
-      <div class="tech-row">
-        <div>
-          <span class="t-tag">ENERGY DENSITY</span>
-          <div class="t-name">10x Battery Equivalent Density</div>
-        </div>
-        <div>
-          <p class="defense-content">Delivers over 90% net weight reduction for dismounted operators using inert, field-activated power cartridges — drastically cutting the load and volume required for tactical missions.</p>
-          <p class="commercial-content">Delivers over 90% net weight reduction for drones, field equipment, and expeditions using inert, hydro-activated energy cartridges — dramatically extending operational endurance.</p>
-        </div>
-      </div>
+      <div>
+        <p class="lead">
+          PXP is developing a different approach to mission power:
+          instead of carrying all of the energy as stored electrochemical
+          energy, the mission carries the means to generate power when required.
+        </p>
 
-      <div class="tech-row">
-        <div>
-          <span class="t-tag">ACTIVATION</span>
-          <div class="t-name">Field-Fluid Instant Activation (&lt;1s)</div>
-        </div>
-        <div>
-          <p class="defense-content">Engineered for zero thermal delay — activated instantly using field-scavenged aqueous fluids with zero pre-charging required.</p>
-          <p class="commercial-content">Zero pre-charging necessary — instantly activated on-site using available aqueous fluids, providing immediate power in emergency situations.</p>
-        </div>
-      </div>
+        <p>
+          The architecture separates the reusable power-generation module
+          from inactive, dry consumable fuel. Additional mission duration
+          can therefore be supported by additional fuel rather than
+          proportionally increasing the mass of stored battery energy.
+        </p>
 
-      <div class="tech-row">
-        <div>
-          <span class="t-tag">STORAGE &amp; SAFETY</span>
-          <div class="t-name">Inherently Safe &amp; Zero Self-Discharge</div>
-        </div>
-        <div>
-          <p class="defense-content">Zero thermal runaway or explosion risks even under direct ballistic penetration. Features zero self-discharge in long-term storage and operates reliably across extreme environments (-20°C to 50°C).</p>
-          <p class="commercial-content">Eliminates thermal runaway and fire risks inherent to traditional lithium-ion batteries. Features indefinite shelf-life with zero self-discharge, operating reliably in extreme temperatures (-20°C to 50°C).</p>
-        </div>
-      </div>
-
-      <div class="tech-row">
-        <div>
-          <span class="t-tag">ARCHITECTURE</span>
-          <div class="t-name">Proprietary High-Efficiency Power Architecture</div>
-        </div>
-        <p>Advanced catalytic cell design that converts activated media into clean, reliable power.
-          <span class="patent-note">PATENT-PENDING</span>
+        <p>
+          The objective is a power system that can be activated at the
+          point of use and scaled to mission-specific energy requirements.
         </p>
       </div>
+
     </div>
-  </section>
+
+
+    <!-- POWER CLASSES -->
+    <div class="power-class-grid">
+
+      <div class="power-class">
+        <span class="class-label">POWER CLASS</span>
+
+        <div class="class-value">
+          110 Wh
+        </div>
+
+        <p>
+          Compact energy class intended for portable electronics,
+          communications equipment, sensors, and other
+          mission-specific loads.
+        </p>
+      </div>
+
+
+      <div class="power-class">
+        <span class="class-label">POWER CLASS</span>
+
+        <div class="class-value">
+          500 Wh
+        </div>
+
+        <p>
+          Higher-capacity energy class intended for extended-duration
+          systems, larger electronic loads, unmanned platforms,
+          and expeditionary power applications.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- WEIGHT OBJECTIVE -->
+    <div class="weight-objective">
+
+      <div>
+        <div class="weight-number">
+          UP TO 90%
+          <span>
+            LOWER CARRIED SYSTEM WEIGHT*
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <p>
+          PXP is targeting a substantial reduction in the carried mass
+          associated with extended-duration power requirements compared
+          with comparable conventional battery-based configurations.
+        </p>
+
+        <p>
+          The design objective is to shift mission energy logistics
+          from carrying increasing amounts of stored battery energy
+          toward carrying a reusable generation module and lightweight,
+          inactive consumable fuel.
+        </p>
+
+        <div class="architecture-footnote">
+          *Conceptual development target relative to comparable
+          conventional battery-based configurations. Actual system
+          weight, energy output, and performance are subject to
+          prototype development and validation testing.
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- CONVENTIONAL VS PXP -->
+    <div class="energy-model">
+
+      <!-- CONVENTIONAL -->
+      <div class="energy-model-panel">
+
+        <span class="model-tag">
+          CONVENTIONAL APPROACH
+        </span>
+
+        <h3>
+          Carry Additional<br>
+          Stored Energy
+        </h3>
+
+        <div class="energy-flow">
+          <span class="node">DEVICE</span>
+          <span class="arrow">→</span>
+          <span class="node">BATTERY</span>
+          <span class="arrow">→</span>
+          <span class="node">BATTERY BANK</span>
+          <span class="arrow">→</span>
+          <span class="node">RECHARGE</span>
+        </div>
+
+        <p>
+          As mission duration increases, additional stored energy
+          generally means additional battery capacity, carried mass,
+          charging requirements, and reverse logistics for discharged
+          batteries.
+        </p>
+
+      </div>
+
+
+      <!-- PXP -->
+      <div class="energy-model-panel">
+
+        <span class="model-tag">
+          PXP APPROACH
+        </span>
+
+        <h3>
+          Carry the Means<br>
+          to Generate Energy
+        </h3>
+
+        <div class="energy-flow">
+          <span class="node">MODULE</span>
+          <span class="arrow">+</span>
+          <span class="node">DRY FUEL</span>
+          <span class="arrow">→</span>
+          <span class="node">ACTIVATE</span>
+          <span class="arrow">→</span>
+          <span class="node">GENERATE</span>
+        </div>
+
+        <p>
+          PXP is designed around generating electricity at the point
+          of use. Additional mission duration can be supported by
+          additional inactive consumable fuel rather than simply
+          adding more pre-stored battery energy.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM PRINCIPLE -->
+    <div class="mission-principle">
+
+      <span class="eyebrow">
+        CORE DESIGN PRINCIPLE
+      </span>
+
+      <h3>
+        You Don't Carry the Energy.<br>
+        You Carry the Means to Generate It.
+      </h3>
+
+    </div>
+
+  </div>
+</section> 
 
   <!-- APPLICATIONS -->
-  <section id="applications" style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
-    <div class="wrap">
-      <div class="section-head" style="border-bottom:none; margin-bottom:0;">
-        <div>
-          <span class="label">DEPLOYMENT</span>
-          <h2>Where it goes to work</h2>
-        </div>
-        <span class="index">3 DOMAINS</span>
-      </div>
-    </div>
-    <div class="wrap" style="padding-top:56px;">
-      
-      <!-- DEFENSE APPLICATIONS -->
-      <div class="app-grid defense-content">
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <circle cx="20" cy="20" r="4.5"/>
-            <path d="M20 15.5V6M20 24.5V34M15.5 20H6M24.5 20H34"/>
-            <circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/>
-            <path d="M10.1 9.9 16 16M23.9 9.9 24 16M10.1 30.1 16 24M29.9 30.1 24 24"/>
-          </svg>
-          <h3>Defense &amp; Tactical Power</h3>
-          <p>Next-generation power for UAVs, ground robots (UGV), tactical communications gear, and dismounted-operator field kits.</p>
-        </div>
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M20 5 33 32H7Z"/>
-            <path d="M20 5 20 32M13.5 20h13"/>
-            <path d="M4 34h32"/>
-          </svg>
-          <h3>Off-Grid &amp; Expeditionary Energy</h3>
-          <p>Modular energy for disaster-relief operations, remote research stations, and mobile equipment working in harsh environments.</p>
-        </div>
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M20 5 33 10v10c0 9-6 14.5-13 16-7-1.5-13-7-13-16V10Z"/>
-            <path d="M15 20l3.5 3.5L26 16"/>
-          </svg>
-          <h3>Mission-Critical Backup Systems</h3>
-          <p>Ultra-high-reliability backup power for government and defense installations where mission continuity cannot be compromised.</p>
-        </div>
+<!-- =========================================================
+     MISSION CONCEPT
+     ========================================================= -->
+<section
+  id="applications"
+  style="background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line);"
+>
+
+  <div class="wrap">
+
+    <div class="section-head" style="border-bottom:none; margin-bottom:0;">
+      <div>
+        <span class="label">MISSION CONCEPT</span>
+        <h2>Power Longer. Carry Less.</h2>
       </div>
 
-      <!-- COMMERCIAL APPLICATIONS -->
-      <div class="app-grid commercial-content">
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <circle cx="20" cy="20" r="4.5"/>
-            <path d="M20 15.5V6M20 24.5V34M15.5 20H6M24.5 20H34"/>
-            <circle cx="8" cy="8" r="3"/><circle cx="32" cy="8" r="3"/><circle cx="8" cy="32" r="3"/><circle cx="32" cy="32" r="3"/>
-            <path d="M10.1 9.9 16 16M23.9 9.9 24 16M10.1 30.1 16 24M29.9 30.1 24 24"/>
-          </svg>
-          <h3>Commercial Drones &amp; Robotics</h3>
-          <p>Multiplies flight time and endurance for survey drones, delivery UAVs, and autonomous robots operating in remote industrial sites.</p>
-        </div>
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M20 5 33 32H7Z"/>
-            <path d="M20 5 20 32M13.5 20h13"/>
-            <path d="M4 34h32"/>
-          </svg>
-          <h3>Disaster Relief &amp; First Responders</h3>
-          <p>Instant power generation for emergency comms, medical devices, and rescue teams operating in grid-down disaster zones.</p>
-        </div>
-        <div class="app-card">
-          <svg class="icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-            <path d="M20 5 33 10v10c0 9-6 14.5-13 16-7-1.5-13-7-13-16V10Z"/>
-            <path d="M15 20l3.5 3.5L26 16"/>
-          </svg>
-          <h3>Zero-Risk Industrial Backup Power</h3>
-          <p>Ultra-safe, non-explosive backup power solutions for hazardous material facilities, aviation, and remote research stations.</p>
-        </div>
-      </div>
+      <span class="index">02 / CONOPS</span>
+    </div>
+
+
+    <!-- INTRO -->
+    <div class="mission-intro">
+
+      <p>
+        The PXP concept is built around a simple change in mission
+        energy logistics: carry the reusable power-generation module
+        and inactive fuel, then activate and generate electricity
+        when power is required.
+      </p>
 
     </div>
-  </section>
 
+
+    <!-- THREE-STEP CONCEPT -->
+    <div class="mission-step-grid">
+
+      <!-- STEP 01 -->
+      <div class="mission-step">
+
+        <span class="step-number">
+          01 / CARRY
+        </span>
+
+        <h3>
+          Carry
+        </h3>
+
+        <span class="step-title">
+          Reusable Module + Dry Fuel
+        </span>
+
+        <p>
+          The mission carries a reusable power-generation module
+          together with lightweight, inactive dry consumable fuel.
+        </p>
+
+      </div>
+
+
+      <!-- STEP 02 -->
+      <div class="mission-step">
+
+        <span class="step-number">
+          02 / ACTIVATE
+        </span>
+
+        <h3>
+          Activate
+        </h3>
+
+        <span class="step-title">
+          At the Point of Use
+        </span>
+
+        <p>
+          Fuel is activated when power is required, using the
+          applicable activation fluid defined for the system.
+        </p>
+
+      </div>
+
+
+      <!-- STEP 03 -->
+      <div class="mission-step">
+
+        <span class="step-number">
+          03 / GENERATE
+        </span>
+
+        <h3>
+          Generate
+        </h3>
+
+        <span class="step-title">
+          Power On Demand
+        </span>
+
+        <p>
+          The activated system generates electricity for the
+          connected mission load without requiring the entire
+          mission energy requirement to be carried as pre-stored
+          battery capacity.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- LOGISTICS CONCEPT -->
+    <div class="energy-model">
+
+      <!-- CONVENTIONAL -->
+      <div class="energy-model-panel">
+
+        <span class="model-tag">
+          BATTERY-BASED MISSION
+        </span>
+
+        <h3>
+          More Mission Time<br>
+          Means More Stored Energy
+        </h3>
+
+        <div class="energy-flow">
+          <span class="node">CARRY</span>
+          <span class="arrow">→</span>
+          <span class="node">CONSUME</span>
+          <span class="arrow">→</span>
+          <span class="node">REPLACE</span>
+          <span class="arrow">→</span>
+          <span class="node">RECHARGE</span>
+        </div>
+
+        <p>
+          Extending a mission can require additional battery capacity
+          to be carried from the beginning, increasing the amount of
+          energy storage mass and creating additional charging and
+          resupply requirements.
+        </p>
+
+      </div>
+
+
+      <!-- PXP -->
+      <div class="energy-model-panel">
+
+        <span class="model-tag">
+          PXP MISSION CONCEPT
+        </span>
+
+        <h3>
+          More Mission Time<br>
+          Can Mean More Fuel
+        </h3>
+
+        <div class="energy-flow">
+          <span class="node">CARRY</span>
+          <span class="arrow">→</span>
+          <span class="node">ACTIVATE</span>
+          <span class="arrow">→</span>
+          <span class="node">GENERATE</span>
+          <span class="arrow">→</span>
+          <span class="node">REPEAT</span>
+        </div>
+
+        <p>
+          The reusable generation module remains with the mission
+          while additional inactive fuel can be carried according
+          to the required mission duration and energy demand.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- MISSION APPLICATIONS -->
+    <div class="mission-intro" style="padding-bottom:30px;">
+
+      <span class="architecture-kicker">
+        POTENTIAL MISSION ENVIRONMENTS
+      </span>
+
+      <p>
+        The architecture is being developed for applications where
+        power-system mass, endurance, charging infrastructure, and
+        energy logistics materially affect mission capability.
+      </p>
+
+    </div>
+
+
+    <div class="app-grid defense-content">
+
+      <div class="app-card">
+        <span class="architecture-kicker">01 / DISMOUNTED</span>
+        <h3>Soldier Systems</h3>
+        <p>
+          Portable power for communications, computing, sensors,
+          electronic equipment, and other individually carried
+          mission systems.
+        </p>
+      </div>
+
+
+      <div class="app-card">
+        <span class="architecture-kicker">02 / UNMANNED</span>
+        <h3>UAV / UAS</h3>
+        <p>
+          Power-system concepts for extended-duration unmanned
+          missions where energy mass and resupply logistics matter.
+        </p>
+      </div>
+
+
+      <div class="app-card">
+        <span class="architecture-kicker">03 / GROUND</span>
+        <h3>UGV / Robotics</h3>
+        <p>
+          Mobile power for autonomous and remotely operated
+          platforms operating away from conventional charging
+          infrastructure.
+        </p>
+      </div>
+
+
+      <div class="app-card">
+        <span class="architecture-kicker">04 / COMMS</span>
+        <h3>Tactical Communications</h3>
+        <p>
+          Long-duration power for radios and remote communications
+          equipment where charging and battery resupply may be
+          difficult.
+        </p>
+      </div>
+
+
+      <div class="app-card">
+        <span class="architecture-kicker">05 / EXPEDITIONARY</span>
+        <h3>Remote Operations</h3>
+        <p>
+          Deployable power for remote operations where grid
+          infrastructure and conventional charging are limited
+          or unavailable.
+        </p>
+      </div>
+
+
+      <div class="app-card">
+        <span class="architecture-kicker">06 / FUTURE</span>
+        <h3>Mission Energy</h3>
+        <p>
+          A scalable platform concept intended to support
+          multiple mission-specific power configurations.
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- CLOSING MESSAGE -->
+    <div class="mission-principle">
+
+      <span class="eyebrow">
+        THE PXP CONCEPT
+      </span>
+
+      <h3>
+        Longer Missions Should Not<br>
+        Require Proportionally More Battery Mass.
+      </h3>
+
+    </div>
+
+  </div>
+</section> 
+ 
   <!-- VIDEO DEMO -->
   <section id="demo" style="padding-top:0;">
     <div class="wrap">
