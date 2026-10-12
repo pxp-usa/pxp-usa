@@ -481,6 +481,8 @@
   .power-class{
     padding:42px 40px 44px;
     border-right:1px solid var(--line);
+    display: flex;
+    flex-direction: column;
   }
   .power-class:last-child{border-right:none;}
   .power-class .class-label{
@@ -1157,39 +1159,43 @@
   </div>
 
 </div>
-
+      
 <div class="power-class-grid">
 
   <!-- TYPE-A -->
   <div class="power-class">
 
-    <!-- DEFENSE -->
-    <div class="defense-content">
-      <span class="class-label">TYPE-A: INDIVIDUAL OPERATOR</span>
-      <div class="class-value">110 Wh class / activation</div>
-      <p>STANAG Magazine-Class Form Factor</p>
-      <p>Intended for standard individual mission electronics.</p>
-      <p>
-        Designed for the individual SOF operator, Type-A is a compact power
-        configuration optimized around a STANAG magazine-class load-carriage footprint.
-      </p>
+    <div class="power-class-content">
+      <!-- DEFENSE -->
+      <div class="defense-content">
+        <span class="class-label">TYPE-A: INDIVIDUAL OPERATOR</span>
+        <div class="class-value">110 Wh class / activation</div>
+        <p>STANAG Magazine-Class Form Factor</p>
+        <p>Intended for standard individual mission electronics.</p>
+        <p>
+          Designed for the individual SOF operator, Type-A is a compact power
+          configuration optimized around a STANAG magazine-class load-carriage footprint.
+        </p>
+      </div>
+
+      <!-- COMMERCIAL -->
+      <div class="commercial-content">
+        <span class="class-label">TYPE-A: PORTABLE POWER</span>
+        <div class="class-value">110 Wh class / activation</div>
+        <p>Compact Portable Form Factor</p>
+        <p>Intended for portable electronics, remote instrumentation, and compact robotic systems.</p>
+        <p>
+          Type-A is a compact power configuration designed for applications where
+          portable equipment must operate beyond conventional charging infrastructure.
+        </p>
+      </div>
     </div>
 
-    <!-- COMMERCIAL -->
-    <div class="commercial-content">
-      <span class="class-label">TYPE-A: PORTABLE POWER</span>
-      <div class="class-value">110 Wh class / activation</div>
-      <p>Compact Portable Form Factor</p>
-      <p>Intended for portable electronics, remote instrumentation, and compact robotic systems.</p>
-      <p>
-        Type-A is a compact power configuration designed for applications where
-        portable equipment must operate beyond conventional charging infrastructure.
-      </p>
-    </div>
-
-    <!-- TYPE-A IMAGE CARD -->
-    <div style="margin-top:24px; border:1px solid var(--line-strong); overflow:hidden; background:var(--surface);">
-      <img src="Type-A.jpg" alt="ProtonX Type-A 110Wh Form Factor Comparison" style="width:100%; height:auto; display:block; filter:saturate(0.95) contrast(1.02);">
+    <!-- TYPE-A IMAGE (하단 맞춤 및 테두리 적용) -->
+    <div style="margin-top: auto; padding-top: 32px;">
+      <div style="border: 1px solid var(--line-strong); box-shadow: 0 0 0 1px var(--line-strong); overflow: hidden; background: var(--surface);">
+        <img src="Type-A.jpg" alt="ProtonX Type-A 110Wh Form Factor Comparison" style="width:100%; height:auto; display:block; filter:saturate(0.95) contrast(1.02);">
+      </div>
     </div>
 
   </div>
@@ -1198,38 +1204,42 @@
   <!-- TYPE-B -->
   <div class="power-class">
 
-    <!-- DEFENSE -->
-    <div class="defense-content">
-      <span class="class-label">TYPE-B: EXTENDED MISSION</span>
-      <div class="class-value">500 Wh class / activation</div>
-      <p>MOLLE-Compatible Form Factor</p>
-      <p>
-        Intended for power-intensive mission electronics, including long-range SATCOM and unmanned systems.
-      </p>
-      <p>
-        Designed for SOF operators carrying higher-power mission electronics,
-        Type-B provides an expanded power configuration optimized for standard
-        MOLLE-compatible load-carriage spaces.
-      </p>
+    <div class="power-class-content">
+      <!-- DEFENSE -->
+      <div class="defense-content">
+        <span class="class-label">TYPE-B: EXTENDED MISSION</span>
+        <div class="class-value">500 Wh class / activation</div>
+        <p>MOLLE-Compatible Form Factor</p>
+        <p>
+          Intended for power-intensive mission electronics, including long-range SATCOM and unmanned systems.
+        </p>
+        <p>
+          Designed for SOF operators carrying higher-power mission electronics,
+          Type-B provides an expanded power configuration optimized for standard
+          MOLLE-compatible load-carriage spaces.
+        </p>
+      </div>
+
+      <!-- COMMERCIAL -->
+      <div class="commercial-content">
+        <span class="class-label">TYPE-B: EXTENDED OPERATION</span>
+        <div class="class-value">500 Wh class / activation</div>
+        <p>Expanded Portable Power Configuration</p>
+        <p>
+          Intended for higher-power mobile equipment, robotics, and remote systems.
+        </p>
+        <p>
+          Type-B provides an expanded power configuration for applications requiring
+          longer operating duration beyond conventional charging infrastructure.
+        </p>
+      </div>
     </div>
 
-    <!-- COMMERCIAL -->
-    <div class="commercial-content">
-      <span class="class-label">TYPE-B: EXTENDED OPERATION</span>
-      <div class="class-value">500 Wh class / activation</div>
-      <p>Expanded Portable Power Configuration</p>
-      <p>
-        Intended for higher-power mobile equipment, robotics, and remote systems.
-      </p>
-      <p>
-        Type-B provides an expanded power configuration for applications requiring
-        longer operating duration beyond conventional charging infrastructure.
-      </p>
-    </div>
-
-    <!-- TYPE-B IMAGE CARD -->
-    <div style="margin-top:24px; border:1px solid var(--line-strong); overflow:hidden; background:var(--surface);">
-      <img src="Type-B.jpg" alt="ProtonX Type-B 500Wh System" style="width:100%; height:auto; display:block; filter:saturate(0.95) contrast(1.02);">
+    <!-- TYPE-B IMAGE (하단 맞춤 및 테두리 적용) -->
+    <div style="margin-top: auto; padding-top: 32px;">
+      <div style="border: 1px solid var(--line-strong); box-shadow: 0 0 0 1px var(--line-strong); overflow: hidden; background: var(--surface);">
+        <img src="Type-B.jpg" alt="ProtonX Type-B 500Wh System" style="width:100%; height:auto; display:block; filter:saturate(0.95) contrast(1.02);">
+      </div>
     </div>
 
   </div>
